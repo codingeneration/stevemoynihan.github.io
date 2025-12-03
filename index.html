@@ -17,9 +17,9 @@
       --text-muted: #9ca3af;
       --border-subtle: rgba(148,163,184,0.28);
       --radius-lg: 16px;
-      --radius-xl: 26px;
-      --shadow-soft: 0 22px 50px rgba(15,23,42,0.9);
-      --shadow-subtle: 0 16px 40px rgba(15,23,42,0.75);
+      --radius-xl: 22px;
+      --shadow-soft: 0 16px 40px rgba(15,23,42,0.9);
+      --shadow-subtle: 0 12px 30px rgba(15,23,42,0.75);
       --transition-fast: 0.18s ease;
     }
 
@@ -48,33 +48,27 @@
     }
 
     .page {
-      max-width: 1180px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 32px 18px 60px;
+      padding: 18px 14px 40px;
     }
 
     @media (min-width: 768px) {
       .page {
-        padding: 40px 24px 72px;
+        padding: 26px 20px 60px;
       }
     }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(to bottom, rgba(2,6,23,0.95), rgba(2,6,23,0.82) 65%, transparent);
-      padding-bottom: 10px;
-      margin-bottom: 4px;
+      margin-bottom: 14px;
     }
 
     .top-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      padding: 8px 2px 12px;
+      gap: 10px;
+      padding: 6px 2px 10px;
     }
 
     .brand {
@@ -84,34 +78,41 @@
     }
 
     .brand-mark {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       border-radius: 999px;
       background: conic-gradient(from 200deg, #22d3ee, #6366f1, #f97316, #22d3ee);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: #0b1120;
-      box-shadow: 0 0 0 2px #020617, 0 0 30px rgba(34,211,238,0.6);
+      box-shadow: 0 0 0 2px #020617, 0 0 20px rgba(34,211,238,0.6);
+      flex-shrink: 0;
     }
 
     .brand-text {
-      font-size: 0.88rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: var(--text-muted);
     }
 
     .nav-links {
-      display: flex;
+      display: none;
       gap: 12px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
+    }
+
+    @media (min-width: 700px) {
+      .nav-links {
+        display: flex;
+      }
     }
 
     .nav-links a {
-      padding: 3px 10px;
+      padding: 3px 9px;
       border-radius: 999px;
       color: var(--text-muted);
       border: 1px solid transparent;
@@ -129,11 +130,11 @@
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
-      gap: 26px;
-      padding: 22px 20px 26px;
-      margin-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 16px 14px 18px;
+      margin-top: 4px;
       border-radius: var(--radius-xl);
       border: 1px solid var(--border-subtle);
       background:
@@ -143,19 +144,21 @@
       box-shadow: var(--shadow-soft);
     }
 
-    @media (max-width: 900px) {
+    @media (min-width: 860px) {
       .hero {
-        grid-template-columns: 1fr;
-        padding: 18px 16px 20px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1.1fr);
+        padding: 22px 20px 24px;
+        gap: 20px;
       }
     }
 
     .hero-main {
-      max-width: 640px;
+      max-width: 100%;
     }
 
     .eyebrow {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.16em;
       color: var(--accent-soft);
@@ -163,19 +166,19 @@
     }
 
     h1 {
-      margin: 6px 0 6px;
-      font-size: 2.4rem;
+      margin: 6px 0 4px;
+      font-size: 1.55rem;
       letter-spacing: 0.02em;
     }
 
     @media (min-width: 768px) {
       h1 {
-        font-size: 2.7rem;
+        font-size: 2.1rem;
       }
     }
 
     .headline-sub {
-      font-size: 1.05rem;
+      font-size: 0.96rem;
       color: var(--text-muted);
       max-width: 540px;
     }
@@ -184,14 +187,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 12px;
+      margin-top: 10px;
       align-items: center;
     }
 
     .pill {
-      padding: 4px 10px;
+      padding: 4px 9px;
       border-radius: 999px;
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       border: 1px solid rgba(148,163,184,0.7);
       background: rgba(15,23,42,0.85);
       color: var(--text-muted);
@@ -205,7 +208,7 @@
       height: 7px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 8px rgba(34,197,94,0.9);
+      box-shadow: 0 0 6px rgba(34,197,94,0.9);
     }
 
     .pill-sun {
@@ -214,9 +217,9 @@
     }
 
     .hero-actions {
-      margin-top: 18px;
+      margin-top: 14px;
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
@@ -224,10 +227,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 18px;
+      padding: 9px 16px;
       border-radius: 999px;
       border: 1px solid transparent;
-      font-size: 0.9rem;
+      font-size: 0.86rem;
       cursor: pointer;
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
       text-decoration: none;
@@ -238,12 +241,12 @@
       background: linear-gradient(135deg, var(--accent), var(--accent-soft));
       color: #0b1120;
       font-weight: 600;
-      box-shadow: 0 14px 35px rgba(56,189,248,0.5);
+      box-shadow: 0 10px 26px rgba(56,189,248,0.5);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(56,189,248,0.8);
+      box-shadow: 0 14px 32px rgba(56,189,248,0.8);
     }
 
     .btn-ghost {
@@ -260,11 +263,11 @@
     .hero-side {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       align-items: flex-start;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 860px) {
       .hero-side {
         align-items: flex-end;
         text-align: right;
@@ -274,13 +277,14 @@
     .company-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      font-size: 0.78rem;
+      gap: 6px;
+      font-size: 0.76rem;
       color: var(--text-muted);
+      width: 100%;
     }
 
     .company-pill {
-      padding: 6px 9px;
+      padding: 6px 8px;
       border-radius: 12px;
       background: rgba(15,23,42,0.9);
       border: 1px solid rgba(51,65,85,0.9);
@@ -299,19 +303,19 @@
     .tag-cloud {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 5px;
       max-width: 260px;
       justify-content: flex-start;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 860px) {
       .tag-cloud {
         justify-content: flex-end;
       }
     }
 
     .tag {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       padding: 3px 8px;
       border-radius: 999px;
       border: 1px solid rgba(51,65,85,0.9);
@@ -320,41 +324,47 @@
     }
 
     main {
-      margin-top: 26px;
+      margin-top: 18px;
       display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-      gap: 22px;
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
 
-    @media (max-width: 900px) {
+    @media (min-width: 880px) {
       main {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
       }
     }
 
     section {
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .card {
       background: var(--bg-card);
       border-radius: var(--radius-lg);
-      padding: 18px 18px 16px;
+      padding: 14px 14px 12px;
       border: 1px solid rgba(31,41,55,0.9);
       box-shadow: var(--shadow-subtle);
     }
 
+    @media (min-width: 768px) {
+      .card {
+        padding: 18px 18px 16px;
+      }
+    }
+
     .section-title {
-      font-size: 0.96rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.11em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .about-text {
-      font-size: 0.94rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
     }
 
@@ -365,9 +375,15 @@
 
     .columns {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 14px;
+      grid-template-columns: 1fr;
+      gap: 12px;
       margin-top: 4px;
+    }
+
+    @media (min-width: 720px) {
+      .columns {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
     }
 
     .columns h3 {
@@ -380,7 +396,7 @@
       list-style: none;
       padding-left: 0;
       margin: 0;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
     }
 
@@ -396,40 +412,39 @@
     .project-list {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 10px;
+      gap: 8px;
       margin-top: 4px;
     }
 
     .project {
-      padding: 10px 11px;
-      border-radius: 12px;
+      padding: 9px 9px;
+      border-radius: 11px;
       background: rgba(15,23,42,0.96);
       border: 1px solid rgba(51,65,85,0.95);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
-      cursor: default;
     }
 
     .project:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgba(15,23,42,0.9);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(15,23,42,0.9);
       border-color: rgba(56,189,248,0.8);
       background: radial-gradient(circle at top left, rgba(56,189,248,0.13), rgba(15,23,42,0.98));
     }
 
     .project-title {
-      font-size: 0.96rem;
+      font-size: 0.94rem;
       font-weight: 600;
       margin-bottom: 2px;
     }
 
     .project-meta {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .project p {
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: var(--text-muted);
       margin: 0;
     }
@@ -437,13 +452,13 @@
     .badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 5px;
       margin-top: 4px;
     }
 
     .badge {
-      font-size: 0.75rem;
-      padding: 2px 8px;
+      font-size: 0.72rem;
+      padding: 2px 7px;
       border-radius: 999px;
       border: 1px solid rgba(55,65,81,0.95);
       color: var(--text-muted);
@@ -453,13 +468,13 @@
     .skills-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 5px;
       margin-top: 6px;
     }
 
     .skills-tags span {
-      font-size: 0.8rem;
-      padding: 3px 9px;
+      font-size: 0.78rem;
+      padding: 3px 8px;
       border-radius: 999px;
       background: rgba(15,23,42,0.96);
       border: 1px solid rgba(55,65,81,0.95);
@@ -470,7 +485,7 @@
       list-style: none;
       padding-left: 0;
       margin: 0;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--text-muted);
     }
 
@@ -502,19 +517,19 @@
     }
 
     .timeline .org {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
     .contact p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
       margin: 0 0 8px;
     }
 
     footer {
-      margin-top: 12px;
-      font-size: 0.8rem;
+      margin-top: 10px;
+      font-size: 0.76rem;
       color: #6b7280;
       text-align: center;
     }
@@ -554,7 +569,7 @@
             </div>
             <div class="pill">
               <span class="pill-sun">☀️</span>
-              Available for collaboration with SoCal teams & remote partners
+              Open to SoCal & remote collaboration
             </div>
           </div>
 
@@ -573,17 +588,17 @@
             <div class="company-pill">
               <span>Past</span>
               <strong>66degrees</strong>
-              <span>Lead Workspace Deployment Engineer</span>
+              <span>Lead Workspace Deployment</span>
             </div>
             <div class="company-pill">
               <span>Past</span>
               <strong>Salesforce</strong>
-              <span>FedRAMP / .gov GWS Tenant</span>
+              <span>FedRAMP GWS Tenant</span>
             </div>
             <div class="company-pill">
               <span>Past</span>
               <strong>Facebook</strong>
-              <span>Google Workspace Cleanup</span>
+              <span>GWS Cleanup & OU Design</span>
             </div>
           </div>
           <div class="tag-cloud">
@@ -607,7 +622,7 @@
             <div class="about-text">
               I’m an IT consultant and cloud collaboration engineer currently working as a <span class="highlight">Solutions Engineer at Brio Technologies</span>. I’m relocating to <span class="highlight">San Diego, California</span>, bringing 15+ years of experience helping organizations untangle, secure, and modernize their Google Workspace and Microsoft 365 environments.<br><br>
               I’ve been brought in by teams like <span class="highlight">Facebook</span>, <span class="highlight">Salesforce</span>, and <span class="highlight">66degrees</span> when the stakes were high—post-workforce reduction cleanups, FedRAMP-sensitive projects, and large-scale Google Workspace deployments. My work sits at the intersection of:
-              <ul style="margin: 8px 0 0 18px; padding: 0; font-size: 0.9rem;">
+              <ul style="margin: 6px 0 0 18px; padding: 0; font-size: 0.88rem;">
                 <li>Collaboration platforms (Google Workspace, M365)</li>
                 <li>Security & compliance (FedRAMP, tenant hygiene)</li>
                 <li>Automation & operational excellence (Apps Script, PowerShell)</li>
@@ -633,9 +648,9 @@
               <div>
                 <h3>Security, FedRAMP & Governance</h3>
                 <ul>
-                  <li>FedRAMP-aware Google Workspace design for .gov sectors</li>
-                  <li>OU structure, policy scoping, and least-privilege access</li>
-                  <li>SSO / SAML, identity strategy, and conditional access</li>
+                  <li>FedRAMP-aware GWS design for .gov sectors</li>
+                  <li>OU structure, policy scoping, least-privilege access</li>
+                  <li>SSO / SAML, identity strategy, conditional access</li>
                   <li>Post-incident / post-reduction tenant cleanups</li>
                 </ul>
               </div>
@@ -645,7 +660,7 @@
                   <li>Google Apps Script & Admin SDK automation</li>
                   <li>PowerShell and API-driven workflows</li>
                   <li>Onboarding/offboarding orchestration</li>
-                  <li>Runbooks, playbooks, and reusable frameworks</li>
+                  <li>Runbooks, playbooks, reusable frameworks</li>
                 </ul>
               </div>
             </div>
@@ -657,7 +672,6 @@
           <div class="card">
             <div class="section-title">Signature Projects</div>
             <div class="project-list">
-              <!-- Salesforce FedRAMP -->
               <div class="project">
                 <div class="project-title">FedRAMP-Aware Google Workspace Tenant for .gov</div>
                 <div class="project-meta">Salesforce · Cloud Collaboration Engineer</div>
@@ -671,7 +685,7 @@
                   <span class="badge">Tenant Design</span>
                 </div>
               </div>
-              <!-- Facebook cleanup -->
+
               <div class="project">
                 <div class="project-title">Post-Reduction Google Workspace Cleanup & Re-architecture</div>
                 <div class="project-meta">Facebook · Google Workspace Specialist</div>
@@ -685,12 +699,12 @@
                   <span class="badge">Google Workspace</span>
                 </div>
               </div>
-              <!-- 66degrees -->
+
               <div class="project">
                 <div class="project-title">Lead Google Workspace Deployments at Scale</div>
-                <div class="project-meta">66degrees · Lead Google Workspace Deployment Engineer</div>
+                <div class="project-meta">66degrees · Lead Workspace Deployment Engineer</div>
                 <p>
-                  Led multiple end-to-end Google Workspace deployments and migrations for customers across industries. This included discovery, domain and tenant planning, migration tooling (such as CloudM), pilot phases, cutover weekends, and post-migration support—while also mentoring engineers and shaping repeatable deployment practices.
+                  Led multiple end-to-end Google Workspace deployments and migrations for customers across industries. Included discovery, tenant planning, migration tooling (CloudM), pilots, cutover weekends, and post-migration support—while mentoring engineers and shaping repeatable deployment practices.
                 </p>
                 <div class="badge-row">
                   <span class="badge">66degrees</span>
@@ -699,12 +713,12 @@
                   <span class="badge">Customer Enablement</span>
                 </div>
               </div>
-              <!-- Brio Technologies -->
+
               <div class="project">
-                <div class="project-title">Solutions Engineering for Brio Technologies</div>
+                <div class="project-title">Solutions Engineering at Brio Technologies</div>
                 <div class="project-meta">Brio Technologies · Solutions Engineer</div>
                 <p>
-                  Currently working as a Solutions Engineer at Brio Technologies, partnering with stakeholders to design and support solutions that blend collaboration tooling, security, and automation. I act as a bridge between technical capabilities and business requirements, especially around Google Workspace, Microsoft 365, and SaaS platforms.
+                  Currently working as a Solutions Engineer at Brio Technologies, partnering with stakeholders to design and support solutions that blend collaboration tooling, security, and automation. Act as a bridge between technical capabilities and business requirements, especially around Google Workspace, Microsoft 365, and SaaS platforms.
                 </p>
                 <div class="badge-row">
                   <span class="badge">Solutions Engineering</span>
