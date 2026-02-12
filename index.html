@@ -1,814 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Steven Moynihan | Cloud Collaboration & Google Workspace Specialist</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Steven Moynihan, San Diego–based cloud collaboration architect and Google Workspace specialist with experience at Facebook, Salesforce, 66degrees, and Brio Technologies." />
-  <style>
-    :root {
-      --bg: #020617;
-      --bg-card: #020617;
-      --bg-elevated: #050816;
-      --accent: #22d3ee;
-      --accent-soft: #38bdf8;
-      --accent-warm: #f97316;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-subtle: rgba(148,163,184,0.28);
-      --radius-lg: 16px;
-      --radius-xl: 22px;
-      --shadow-soft: 0 16px 40px rgba(15,23,42,0.9);
-      --shadow-subtle: 0 12px 30px rgba(15,23,42,0.75);
-      --transition-fast: 0.18s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      background:
-        radial-gradient(circle at top left, #0b1120 0, #020617 55%) fixed,
-        radial-gradient(circle at bottom right, #020617 0, #000 60%) fixed;
-      color: var(--text-main);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--accent-soft);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .page {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 18px 14px 40px;
-    }
-
-    @media (min-width: 768px) {
-      .page {
-        padding: 26px 20px 60px;
-      }
-    }
-
-    header {
-      margin-bottom: 14px;
-    }
-
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      padding: 6px 2px 10px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .brand-mark {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: conic-gradient(from 200deg, #22d3ee, #6366f1, #f97316, #22d3ee);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #0b1120;
-      box-shadow: 0 0 0 2px #020617, 0 0 20px rgba(34,211,238,0.6);
-      flex-shrink: 0;
-    }
-
-    .brand-text {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--text-muted);
-    }
-
-    .nav-links {
-      display: none;
-      gap: 12px;
-      font-size: 0.82rem;
-    }
-
-    @media (min-width: 700px) {
-      .nav-links {
-        display: flex;
-      }
-    }
-
-    .nav-links a {
-      padding: 3px 9px;
-      border-radius: 999px;
-      color: var(--text-muted);
-      border: 1px solid transparent;
-    }
-
-    .nav-links a:hover {
-      border-color: rgba(148,163,184,0.5);
-      color: var(--text-main);
-      background: rgba(15,23,42,0.9);
-    }
-
-    .nav-links a.primary-link {
-      border-color: rgba(148,163,184,0.6);
-      background: rgba(15,23,42,0.9);
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding: 16px 14px 18px;
-      margin-top: 4px;
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border-subtle);
-      background:
-        radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(249,115,22,0.18), transparent 55%),
-        linear-gradient(to bottom right, #020617, #020617);
-      box-shadow: var(--shadow-soft);
-    }
-
-    @media (min-width: 860px) {
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1.1fr);
-        padding: 22px 20px 24px;
-        gap: 20px;
-      }
-    }
-
-    .hero-main {
-      max-width: 100%;
-    }
-
-    .eyebrow {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--accent-soft);
-      font-weight: 600;
-    }
-
-    h1 {
-      margin: 6px 0 4px;
-      font-size: 1.55rem;
-      letter-spacing: 0.02em;
-    }
-
-    @media (min-width: 768px) {
-      h1 {
-        font-size: 2.1rem;
-      }
-    }
-
-    .headline-sub {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      max-width: 540px;
-    }
-
-    .hero-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-      align-items: center;
-    }
-
-    .pill {
-      padding: 4px 9px;
-      border-radius: 999px;
-      font-size: 0.74rem;
-      border: 1px solid rgba(148,163,184,0.7);
-      background: rgba(15,23,42,0.85);
-      color: var(--text-muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 6px rgba(34,197,94,0.9);
-    }
-
-    .pill-sun {
-      color: var(--accent-warm);
-      font-size: 0.9rem;
-    }
-
-    .hero-actions {
-      margin-top: 14px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.86rem;
-      cursor: pointer;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
-      color: #0b1120;
-      font-weight: 600;
-      box-shadow: 0 10px 26px rgba(56,189,248,0.5);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 32px rgba(56,189,248,0.8);
-    }
-
-    .btn-ghost {
-      border-color: rgba(148,163,184,0.7);
-      color: var(--text-main);
-      background: rgba(15,23,42,0.75);
-    }
-
-    .btn-ghost:hover {
-      background: rgba(15,23,42,0.98);
-      border-color: var(--accent-soft);
-    }
-
-    .hero-side {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-start;
-    }
-
-    @media (min-width: 860px) {
-      .hero-side {
-        align-items: flex-end;
-        text-align: right;
-      }
-    }
-
-    .company-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px;
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      width: 100%;
-    }
-
-    .company-pill {
-      padding: 6px 8px;
-      border-radius: 12px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(51,65,85,0.9);
-    }
-
-    .company-pill span {
-      display: block;
-    }
-
-    .company-pill strong {
-      color: var(--text-main);
-      font-weight: 600;
-      font-size: 0.8rem;
-    }
-
-    .tag-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      max-width: 260px;
-      justify-content: flex-start;
-    }
-
-    @media (min-width: 860px) {
-      .tag-cloud {
-        justify-content: flex-end;
-      }
-    }
-
-    .tag {
-      font-size: 0.72rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(51,65,85,0.9);
-      background: rgba(15,23,42,0.9);
-      color: var(--text-muted);
-    }
-
-    main {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-
-    @media (min-width: 880px) {
-      main {
-        grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-      }
-    }
-
-    section {
-      margin-bottom: 18px;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      padding: 14px 14px 12px;
-      border: 1px solid rgba(31,41,55,0.9);
-      box-shadow: var(--shadow-subtle);
-    }
-
-    @media (min-width: 768px) {
-      .card {
-        padding: 18px 18px 16px;
-      }
-    }
-
-    .section-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.11em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .about-text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .highlight {
-      color: var(--accent-soft);
-      font-weight: 500;
-    }
-
-    .columns {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 4px;
-    }
-
-    @media (min-width: 720px) {
-      .columns {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-    }
-
-    .columns h3 {
-      margin: 0 0 4px;
-      font-size: 0.9rem;
-      color: var(--text-main);
-    }
-
-    .columns ul {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .columns li {
-      margin-bottom: 3px;
-    }
-
-    .columns li::before {
-      content: "• ";
-      color: var(--accent-soft);
-    }
-
-    .project-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .project {
-      padding: 9px 9px;
-      border-radius: 11px;
-      background: rgba(15,23,42,0.96);
-      border: 1px solid rgba(51,65,85,0.95);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
-    }
-
-    .project:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(15,23,42,0.9);
-      border-color: rgba(56,189,248,0.8);
-      background: radial-gradient(circle at top left, rgba(56,189,248,0.13), rgba(15,23,42,0.98));
-    }
-
-    .project-title {
-      font-size: 0.94rem;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-
-    .project-meta {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      margin-bottom: 3px;
-    }
-
-    .project p {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-top: 4px;
-    }
-
-    .badge {
-      font-size: 0.72rem;
-      padding: 2px 7px;
-      border-radius: 999px;
-      border: 1px solid rgba(55,65,81,0.95);
-      color: var(--text-muted);
-      background: rgba(15,23,42,0.96);
-    }
-
-    .skills-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-top: 6px;
-    }
-
-    .skills-tags span {
-      font-size: 0.78rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.96);
-      border: 1px solid rgba(55,65,81,0.95);
-      color: var(--text-muted);
-    }
-
-    .timeline {
-      list-style: none;
-      padding-left: 0;
-      margin: 0;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-    }
-
-    .timeline li {
-      margin-bottom: 8px;
-      position: relative;
-      padding-left: 16px;
-    }
-
-    .timeline li::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      position: absolute;
-      left: 2px;
-      top: 7px;
-    }
-
-    .timeline span {
-      display: block;
-    }
-
-    .timeline .role {
-      color: var(--text-main);
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    .timeline .org {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .contact p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin: 0 0 8px;
-    }
-
-    footer {
-      margin-top: 10px;
-      font-size: 0.76rem;
-      color: #6b7280;
-      text-align: center;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+<meta charset="UTF-8" />
+<title>Steven Moynihan | Business Systems & Google Workspace Specialist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Steven Moynihan — San Diego based business systems and cloud collaboration specialist focused on IAM, automation, and SaaS governance." />
+
+<style>
+:root {
+--bg:#020617;
+--accent:#22d3ee;
+--accent-soft:#38bdf8;
+--text-main:#f9fafb;
+--text-muted:#9ca3af;
+--radius-lg:16px;
+--radius-xl:22px;
+}
+
+body{
+margin:0;
+font-family:system-ui;
+background:#020617;
+color:var(--text-main);
+}
+
+.page{max-width:1100px;margin:auto;padding:20px;}
+
+.hero{
+display:grid;
+grid-template-columns:1.5fr 1fr;
+gap:20px;
+padding:20px;
+border-radius:var(--radius-xl);
+border:1px solid rgba(148,163,184,0.28);
+}
+
+.hero-headshot{
+display:flex;
+align-items:center;
+gap:12px;
+justify-content:flex-end;
+}
+
+.headshot{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+border:1px solid rgba(148,163,184,0.5);
+}
+
+.section-title{
+font-size:.9rem;
+text-transform:uppercase;
+letter-spacing:.1em;
+color:var(--text-muted);
+margin-bottom:10px;
+}
+
+.card{
+border:1px solid rgba(51,65,85,0.8);
+padding:18px;
+border-radius:var(--radius-lg);
+margin-bottom:20px;
+}
+
+.project{
+margin-bottom:14px;
+}
+</style>
 </head>
+
 <body>
-  <div class="page">
-    <header>
-      <div class="top-nav">
-        <div class="brand">
-          <div class="brand-mark">S</div>
-          <div class="brand-text">Steven Moynihan</div>
-        </div>
-        <nav class="nav-links">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact" class="primary-link">Contact</a>
-        </nav>
-      </div>
-      <div class="hero">
-        <div class="hero-main">
-          <div class="eyebrow">Cloud Collaboration · Google Workspace · San Diego</div>
-          <h1>Cloud & Google Workspace Specialist</h1>
-          <div class="headline-sub">
-            I design, migrate, and clean up collaboration environments for companies that can’t afford to get it wrong—from <span class="highlight">fast-growth tech</span> to <span class="highlight">regulated FedRAMP projects</span>.
-          </div>
+<div class="page">
 
-          <div class="hero-meta-row">
-            <div class="pill">
-              <span class="pill-dot"></span>
-              Located in <strong>San Diego, CA</strong>
-            </div>
-            <div class="pill">
-              <span class="pill-sun">☀️</span>
-              Open to SoCal & remote collaboration
-            </div>
-          </div>
+<header class="hero">
 
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View Signature Projects</a>
-            <a href="#experience" class="btn btn-ghost">Career Snapshot</a>
-          </div>
-        </div>
-        <div class="hero-side">
-          <div class="company-grid">
-            <div class="company-pill">
-              <span>Current</span>
-              <strong>Brio Technologies</strong>
-              <span>Solutions Engineer</span>
-            </div>
-            <div class="company-pill">
-              <span>Past</span>
-              <strong>66degrees</strong>
-              <span>Lead Workspace Deployment Engineer</span>
-            </div>
-            <div class="company-pill">
-              <span>Past</span>
-              <strong>Salesforce</strong>
-              <span>FedRAMP GWS Tenant</span>
-            </div>
-            <div class="company-pill">
-              <span>Past</span>
-              <strong>Facebook</strong>
-              <span>GWS Cleanup & OU Design</span>
-            </div>
-          </div>
-          <div class="tag-cloud">
-            <span class="tag">Google Workspace</span>
-            <span class="tag">FedRAMP</span>
-            <span class="tag">M365 → GWS</span>
-            <span class="tag">OU Design</span>
-            <span class="tag">Automation</span>
-            <span class="tag">SaaS Security</span>
-          </div>
-        </div>
-      </div>
-    </header>
+<div>
+<h1>Business Systems & Google Workspace Specialist</h1>
 
-    <main>
-      <div>
-        <!-- About -->
-        <section id="about">
-          <div class="card">
-            <div class="section-title">About</div>
-            <div class="about-text">
-              I’m an IT consultant and cloud collaboration engineer currently working as a <span class="highlight">Solutions Engineer at Brio Technologies</span>. I’ve relocated to <span class="highlight">San Diego, California</span>, bringing 15+ years of experience helping organizations untangle, secure, and modernize their Google Workspace and Microsoft 365 environments.<br><br>
-              I’ve been brought in by teams like <span class="highlight">Facebook</span>, <span class="highlight">Salesforce</span>, and <span class="highlight">66degrees</span> when the stakes were high—post-workforce reduction cleanups, FedRAMP-sensitive projects, and large-scale Google Workspace deployments. My work sits at the intersection of:
-              <ul style="margin: 6px 0 0 18px; padding: 0; font-size: 0.88rem;">
-                <li>Collaboration platforms (Google Workspace, M365)</li>
-                <li>Security & compliance (FedRAMP, tenant hygiene)</li>
-                <li>Automation & operational excellence (Apps Script, PowerShell)</li>
-              </ul>
-            </div>
-          </div>
-        </section>
+<p style="color:var(--text-muted);max-width:600px;">
+I build scalable access models, automation, and SaaS governance that reduce operational friction and security risk while helping organizations scale efficiently.
+</p>
 
-        <!-- What I Do -->
-        <section id="services">
-          <div class="card">
-            <div class="section-title">What I Do</div>
-            <div class="columns">
-              <div>
-                <h3>Google Workspace & M365</h3>
-                <ul>
-                  <li>Tenant-to-tenant and cross-platform migrations</li>
-                  <li>Mail, Drive/shared drives, and calendar migrations</li>
-                  <li>Google Workspace tenant design & consolidation</li>
-                  <li>Cutover, coexistence, and change management</li>
-                </ul>
-              </div>
-              <div>
-                <h3>Security, FedRAMP & Governance</h3>
-                <ul>
-                  <li>FedRAMP-aware GWS design for .gov sectors</li>
-                  <li>OU structure, policy scoping, least-privilege access</li>
-                  <li>SSO / SAML, identity strategy, conditional access</li>
-                  <li>Post-incident / post-reduction tenant cleanups</li>
-                </ul>
-              </div>
-              <div>
-                <h3>Automation & Engineering</h3>
-                <ul>
-                  <li>Google Apps Script & Admin SDK automation</li>
-                  <li>PowerShell and API-driven workflows</li>
-                  <li>Onboarding/offboarding orchestration</li>
-                  <li>Runbooks, playbooks, reusable frameworks</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+<p style="color:var(--text-muted);max-width:600px;">
+I specialize in owning internal systems end-to-end — continuously improving access, automation, and operational workflows as organizations grow.
+</p>
 
-        <!-- Projects -->
-        <section id="projects">
-          <div class="card">
-            <div class="section-title">Signature Projects</div>
-            <div class="project-list">
-              <div class="project">
-                <div class="project-title">FedRAMP-Aware Google Workspace Tenant for .gov</div>
-                <div class="project-meta">Salesforce · Cloud Collaboration Engineer</div>
-                <p>
-                  Part of the project team that implemented a <span class="highlight">FedRAMP-aligned Google Workspace tenant</span> specifically serving government-sector requirements. Helped design and configure a dedicated tenant with hardened policies, restricted data sharing, and scoped access patterns appropriate for .gov workloads.
-                </p>
-                <div class="badge-row">
-                  <span class="badge">FedRAMP</span>
-                  <span class="badge">Google Workspace Admin</span>
-                  <span class="badge">Security & Compliance</span>
-                  <span class="badge">Tenant Design</span>
-                </div>
-              </div>
+</div>
 
-              <div class="project">
-                <div class="project-title">Post-Reduction Google Workspace Cleanup & Re-architecture</div>
-                <div class="project-meta">Facebook · Google Workspace Specialist</div>
-                <p>
-                  Brought in after a major workforce reduction to clean up and stabilize Facebook’s Google Workspace environment. Proposed and implemented a <span class="highlight">new OU structure</span> with clear segmentation, policy boundaries, and delegated admin scopes—improving security posture and making ongoing administration significantly more manageable.
-                </p>
-                <div class="badge-row">
-                  <span class="badge">OU Design</span>
-                  <span class="badge">Policy Hardening</span>
-                  <span class="badge">Post-Layoff Cleanup</span>
-                  <span class="badge">Google Workspace</span>
-                </div>
-              </div>
+<div class="hero-headshot">
 
-              <div class="project">
-                <div class="project-title">Lead Google Workspace Deployments at Scale</div>
-                <div class="project-meta">66degrees · Lead Workspace Deployment Engineer</div>
-                <p>
-                  Led multiple end-to-end Google Workspace deployments and migrations for customers across industries. Included discovery, tenant planning, migration tooling (CloudM), pilots, cutover weekends, and post-migration support—while mentoring engineers and shaping repeatable deployment practices.
-                </p>
-                <div class="badge-row">
-                  <span class="badge">66degrees</span>
-                  <span class="badge">CloudM</span>
-                  <span class="badge">Migrations</span>
-                  <span class="badge">Customer Enablement</span>
-                </div>
-              </div>
+<img
+class="headshot"
+src="assets/steve-moynihan-headshot.jpeg"
+alt="Steven Moynihan professional headshot"
+/>
 
-              <div class="project">
-                <div class="project-title">Solutions Engineering at Brio Technologies</div>
-                <div class="project-meta">Brio Technologies · Solutions Engineer</div>
-                <p>
-                  Currently working as a Solutions Engineer at Brio Technologies, partnering with stakeholders to design and support solutions that blend collaboration tooling, security, and automation. Act as a bridge between technical capabilities and business requirements, especially around Google Workspace, Microsoft 365, and SaaS platforms.
-                </p>
-                <div class="badge-row">
-                  <span class="badge">Solutions Engineering</span>
-                  <span class="badge">Stakeholder Alignment</span>
-                  <span class="badge">SaaS Platforms</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+<div>
+<strong>Steven Moynihan</strong><br/>
+<span style="color:var(--text-muted);font-size:.85rem;">
+Business Systems · IAM · Automation
+</span>
+</div>
 
-      <!-- Sidebar -->
-      <div>
-        <!-- Experience -->
-        <section id="experience">
-          <div class="card">
-            <div class="section-title">Career Snapshot</div>
-            <ul class="timeline">
-              <li>
-                <span class="role">Solutions Engineer</span>
-                <span class="org">Brio Technologies · Present</span>
-                <span>Designing and supporting collaboration and SaaS solutions, bridging technical implementation with business needs.</span>
-              </li>
-              <li>
-                <span class="role">Lead Google Workspace Deployment Engineer</span>
-                <span class="org">66degrees</span>
-                <span>Led complex Workspace deployments and migrations for multiple customers, owning everything from design to cutover.</span>
-              </li>
-              <li>
-                <span class="role">Cloud Collaboration Engineer (FedRAMP Project)</span>
-                <span class="org">Salesforce</span>
-                <span>Contributed to a FedRAMP-aware Google Workspace tenant for .gov workloads, focusing on secure tenant design and policy alignment.</span>
-              </li>
-              <li>
-                <span class="role">Google Workspace Specialist</span>
-                <span class="org">Facebook</span>
-                <span>Redesigned OU and policy structure following major workforce reductions, improving governance and operational clarity.</span>
-              </li>
-            </ul>
-          </div>
-        </section>
+</div>
 
-        <!-- Skills -->
-        <section id="skills">
-          <div class="card">
-            <div class="section-title">Skills & Tools</div>
-            <div class="skills-tags">
-              <span>Google Workspace Admin</span>
-              <span>Microsoft 365</span>
-              <span>Azure AD / Entra ID</span>
-              <span>CloudM Migrate</span>
-              <span>Google Workspace Migrate</span>
-              <span>Google Apps Script</span>
-              <span>PowerShell</span>
-              <span>SSO / SAML</span>
-              <span>OU & Policy Design</span>
-              <span>FedRAMP Awareness</span>
-              <span>Change Management</span>
-              <span>User Training & Enablement</span>
-            </div>
-          </div>
-        </section>
+</header>
 
-  <!-- Contact -->
-<section id="contact">
-  <div class="card contact">
-    <div class="section-title">Contact</div>
-    <p>
-      Located in <span class="highlight">San Diego</span> and open to collaboration with local teams, remote-friendly roles, Google Cloud partners, and MSPs.
-    </p>
-    <p>
-      <strong>Email:</strong> <a href="mailto:steve@stevesitsolutions.com">steve@stevesitsolutions.com</a><br />
-      <strong>LinkedIn:</strong> 
-      <a href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank" rel="noreferrer">
-        linkedin.com/in/stevenmoynihan
-      </a>
-    </p>
-  </div>
+<main>
+
+<section>
+<div class="card">
+
+<div class="section-title">About</div>
+
+<p style="color:var(--text-muted);">
+I am a cloud collaboration and business systems specialist with 15+ years of experience supporting Google Workspace, Microsoft 365, identity architecture, and SaaS governance. I help organizations design secure, scalable operational environments that improve productivity and reduce administrative overhead.
+</p>
+
+</div>
 </section>
-      </div>
-    </main>
 
-    <footer>
-      © <span id="year"></span> Steven Moynihan. All rights reserved.
-    </footer>
-  </div>
+<section>
+<div class="card">
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<div class="section-title">Signature Projects</div>
+
+<div class="project">
+<strong>FedRAMP Google Workspace Tenant</strong>
+<p style="color:var(--text-muted);">
+Supported implementation of a FedRAMP-aligned tenant with hardened policies, restricted data sharing, and scoped access patterns for government workloads.
+</p>
+</div>
+
+<div class="project">
+<strong>Post-Reduction Workspace Governance Re-Architecture</strong>
+<p style="color:var(--text-muted);">
+Redesigned OU and policy model to improve administrative clarity, reduce security risk, and simplify long-term governance.
+</p>
+</div>
+
+<div class="project">
+<strong>Large-Scale Workspace Deployments</strong>
+<p style="color:var(--text-muted);">
+Led tenant migrations and deployments including discovery, planning, automation, and cutover execution while building repeatable frameworks.
+</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<div class="card">
+
+<div class="section-title">Career Snapshot</div>
+
+<p style="color:var(--text-muted);">
+Solutions Engineer — Brio Technologies<br/>
+Lead Workspace Deployment Engineer — 66degrees<br/>
+Cloud Collaboration Engineer — Salesforce<br/>
+Google Workspace Specialist — Facebook
+</p>
+
+</div>
+</section>
+
+<section>
+<div class="card">
+
+<div class="section-title">Contact</div>
+
+<p style="color:var(--text-muted);">
+Email:
+<a href="mailto:steve@stevesitsolutions.com">steve@stevesitsolutions.com</a>
+</p>
+
+<p style="color:var(--text-muted);">
+LinkedIn:
+<a href="https://linkedin.com/in/stevenmoynihan" target="_blank">
+linkedin.com/in/stevenmoynihan
+</a>
+</p>
+
+</div>
+</section>
+
+</main>
+
+<footer style="text-align:center;color:#6b7280;font-size:.8rem;margin-top:20px;">
+© 2026 Steven Moynihan
+</footer>
+
+</div>
 </body>
 </html>
