@@ -1,197 +1,789 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Steven Moynihan | Business Systems & Google Workspace Specialist</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Steven Moynihan — San Diego based business systems and cloud collaboration specialist focused on IAM, automation, and SaaS governance." />
+  <meta charset="UTF-8" />
+  <title>Steven Moynihan | Business Systems, IAM & Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Steven Moynihan — San Diego-based Business Systems & Cloud Collaboration specialist. I build scalable IAM, automation, and SaaS governance that reduces friction and risk as companies grow." />
 
-<style>
-:root {
---bg:#020617;
---accent:#22d3ee;
---accent-soft:#38bdf8;
---text-main:#f9fafb;
---text-muted:#9ca3af;
---radius-lg:16px;
---radius-xl:22px;
-}
+  <!-- Social / OG -->
+  <meta property="og:title" content="Steven Moynihan | Business Systems, IAM & Automation" />
+  <meta property="og:description" content="I build scalable access models, automation, and SaaS governance that reduces operational friction and security risk." />
+  <meta property="og:type" content="website" />
 
-body{
-margin:0;
-font-family:system-ui;
-background:#020617;
-color:var(--text-main);
-}
+  <style>
+    :root {
+      --bg: #020617;
+      --bg2: #000000;
+      --card: rgba(15, 23, 42, 0.72);
+      --card2: rgba(15, 23, 42, 0.9);
+      --border: rgba(148,163,184,0.22);
+      --border2: rgba(51,65,85,0.75);
+      --text: #f9fafb;
+      --muted: #9ca3af;
 
-.page{max-width:1100px;margin:auto;padding:20px;}
+      --accent: #22d3ee;
+      --accent2: #38bdf8;
+      --warm: #f97316;
 
-.hero{
-display:grid;
-grid-template-columns:1.5fr 1fr;
-gap:20px;
-padding:20px;
-border-radius:var(--radius-xl);
-border:1px solid rgba(148,163,184,0.28);
-}
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --shadow: 0 18px 45px rgba(15,23,42,0.85);
+      --shadow2: 0 12px 28px rgba(15,23,42,0.8);
 
-.hero-headshot{
-display:flex;
-align-items:center;
-gap:12px;
-justify-content:flex-end;
-}
+      --transition: 0.18s ease;
+    }
 
-.headshot{
-width:90px;
-height:90px;
-border-radius:50%;
-object-fit:cover;
-border:1px solid rgba(148,163,184,0.5);
-}
+    * { box-sizing: border-box; }
 
-.section-title{
-font-size:.9rem;
-text-transform:uppercase;
-letter-spacing:.1em;
-color:var(--text-muted);
-margin-bottom:10px;
-}
+    html { scroll-behavior: smooth; }
 
-.card{
-border:1px solid rgba(51,65,85,0.8);
-padding:18px;
-border-radius:var(--radius-lg);
-margin-bottom:20px;
-}
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #0b1120 0, var(--bg) 55%) fixed,
+        radial-gradient(circle at bottom right, var(--bg) 0, var(--bg2) 60%) fixed;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
 
-.project{
-margin-bottom:14px;
-}
-</style>
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 14px 60px;
+    }
+
+    @media (min-width: 860px) {
+      .page { padding: 26px 20px 70px; }
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 12px;
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.6);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 10px;
+      z-index: 9999;
+    }
+    .skip-link:focus { left: 14px; outline: none; box-shadow: 0 0 0 3px rgba(56,189,248,0.25); }
+
+    /* Top nav */
+    header { margin-bottom: 14px; }
+
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 6px 2px 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+    }
+
+    .brand-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: conic-gradient(from 200deg, var(--accent), #6366f1, var(--warm), var(--accent));
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #0b1120;
+      box-shadow: 0 0 0 2px #020617, 0 0 18px rgba(34,211,238,0.55);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-text strong {
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text span {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: none;
+      gap: 10px;
+      font-size: 0.84rem;
+      align-items: center;
+    }
+    @media (min-width: 780px) {
+      .nav-links { display: flex; }
+    }
+
+    .nav-links a {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      background: transparent;
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(15,23,42,0.85);
+      border-color: rgba(148,163,184,0.45);
+    }
+
+    .nav-links a.primary {
+      border-color: rgba(148,163,184,0.55);
+      background: rgba(15,23,42,0.85);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.16), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(249,115,22,0.16), transparent 55%),
+        linear-gradient(to bottom right, rgba(2,6,23,0.92), rgba(2,6,23,0.92));
+      box-shadow: var(--shadow);
+      padding: 18px 14px 18px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 880px) {
+      .hero {
+        padding: 24px 22px 22px;
+        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1.05fr);
+        gap: 22px;
+      }
+    }
+
+    .eyebrow {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent2);
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 6px 0 8px;
+      font-size: 1.7rem;
+      letter-spacing: 0.01em;
+      line-height: 1.15;
+    }
+    @media (min-width: 768px) {
+      h1 { font-size: 2.2rem; }
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 640px;
+      margin: 0 0 10px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      align-items: center;
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      border: 1px solid rgba(148,163,184,0.55);
+      background: rgba(15,23,42,0.75);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34,197,94,0.85);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.88rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition), color var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #0b1120;
+      font-weight: 700;
+      box-shadow: 0 10px 26px rgba(56,189,248,0.45);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 32px rgba(56,189,248,0.7); }
+
+    .btn-ghost {
+      background: rgba(15,23,42,0.75);
+      color: var(--text);
+      border-color: rgba(148,163,184,0.55);
+    }
+    .btn-ghost:hover { border-color: var(--accent2); background: rgba(15,23,42,0.92); }
+
+    .btn-soft {
+      background: rgba(56,189,248,0.12);
+      color: var(--text);
+      border-color: rgba(56,189,248,0.28);
+    }
+    .btn-soft:hover { background: rgba(56,189,248,0.18); border-color: rgba(56,189,248,0.45); }
+
+    /* Right hero column */
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    @media (min-width: 880px) {
+      .hero-side { align-items: flex-end; text-align: right; }
+    }
+
+    .headshot-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      justify-content: flex-start;
+    }
+    @media (min-width: 880px) {
+      .headshot-row { justify-content: flex-end; }
+    }
+
+    .headshot {
+      width: 76px;
+      height: 76px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 1px solid rgba(148,163,184,0.55);
+      box-shadow: 0 10px 26px rgba(56,189,248,0.18);
+      background: rgba(15,23,42,0.75);
+      flex-shrink: 0;
+    }
+
+    .headshot-meta { line-height: 1.2; }
+    .headshot-meta strong { display:block; font-size: 0.92rem; }
+    .headshot-meta span { display:block; font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
+    }
+
+    .mini-card {
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid var(--border2);
+      background: rgba(15,23,42,0.86);
+    }
+
+    .mini-card span { display:block; color: var(--muted); font-size: 0.76rem; }
+    .mini-card strong { display:block; margin-top: 2px; font-size: 0.86rem; }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      max-width: 380px;
+      justify-content: flex-start;
+    }
+    @media (min-width: 880px) { .tag-cloud { justify-content: flex-end; } }
+
+    .tag {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border2);
+      background: rgba(15,23,42,0.86);
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    /* Main layout */
+    main {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 980px) {
+      main { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
+    }
+
+    /* Cards */
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border2);
+      background: rgba(2,6,23,0.62);
+      box-shadow: var(--shadow2);
+      padding: 16px 16px 14px;
+    }
+    @media (min-width: 768px) { .card { padding: 18px 18px 16px; } }
+
+    .section-title {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .muted { color: var(--muted); }
+
+    /* Impact grid */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    @media (min-width: 720px) {
+      .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .impact {
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border2);
+      background: rgba(15,23,42,0.86);
+    }
+    .impact strong { display:block; font-size: 0.92rem; margin-bottom: 2px; }
+    .impact span { display:block; color: var(--muted); font-size: 0.86rem; }
+
+    /* Projects */
+    .project-list { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
+
+    .project {
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border2);
+      background: rgba(15,23,42,0.9);
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .project:hover {
+      transform: translateY(-1px);
+      border-color: rgba(56,189,248,0.55);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.85);
+    }
+
+    .project h3 { margin: 0 0 3px; font-size: 1.02rem; }
+    .project .meta { color: var(--muted); font-size: 0.8rem; margin-bottom: 6px; }
+    .project p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+    .badge-row { display:flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+    .badge {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(55,65,81,0.95);
+      background: rgba(2,6,23,0.35);
+      color: var(--muted);
+    }
+
+    /* Skills columns */
+    .skill-cols {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 8px;
+    }
+    @media (min-width: 760px) { .skill-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+    .skill-col {
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border2);
+      background: rgba(15,23,42,0.86);
+    }
+    .skill-col strong { display:block; margin-bottom: 6px; }
+    .skill-col ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.9rem; }
+    .skill-col li { margin-bottom: 4px; }
+
+    /* Timeline */
+    .timeline { list-style:none; padding-left: 0; margin: 0; }
+    .timeline li { padding-left: 16px; position: relative; margin-bottom: 12px; color: var(--muted); font-size: 0.9rem; }
+    .timeline li::before {
+      content:"";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent2);
+      position:absolute;
+      left: 2px;
+      top: 9px;
+      box-shadow: 0 0 10px rgba(56,189,248,0.45);
+    }
+    .timeline .role { color: var(--text); font-weight: 700; display:block; }
+    .timeline .org { color: var(--muted); font-size: 0.82rem; display:block; margin-top: 1px; }
+
+    /* Footer */
+    footer {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+  </style>
 </head>
 
 <body>
-<div class="page">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="hero">
+  <div class="page">
+    <header>
+      <div class="top-nav">
+        <div class="brand" aria-label="Site brand">
+          <div class="brand-mark" aria-hidden="true">S</div>
+          <div class="brand-text">
+            <strong>Steven Moynihan</strong>
+            <span>Business Systems · IAM · Automation</span>
+          </div>
+        </div>
 
-<div>
-<h1>Business Systems & Google Workspace Specialist</h1>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#about">About</a>
+          <a href="#impact">Impact</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact" class="primary">Contact</a>
+        </nav>
+      </div>
 
-<p style="color:var(--text-muted);max-width:600px;">
-I build scalable access models, automation, and SaaS governance that reduce operational friction and security risk while helping organizations scale efficiently.
-</p>
+      <div class="hero">
+        <!-- Left hero -->
+        <div>
+          <div class="eyebrow">San Diego · Internal Systems Ownership · Scalable Operations</div>
+          <h1>Business Systems & Cloud Collaboration Specialist</h1>
 
-<p style="color:var(--text-muted);max-width:600px;">
-I specialize in owning internal systems end-to-end — continuously improving access, automation, and operational workflows as organizations grow.
-</p>
+          <p class="lead">
+            I build scalable access models, automation, and SaaS governance that reduce operational friction and security risk — so teams can move fast without losing control.
+          </p>
 
-</div>
+          <p class="lead" style="max-width: 680px;">
+            My sweet spot is owning systems end-to-end: tightening permissions, standardizing joiner/mover/leaver, improving adoption, and building repeatable playbooks that keep operations smooth as headcount grows.
+          </p>
 
-<div class="hero-headshot">
+          <div class="hero-pills">
+            <span class="pill"><span class="dot" aria-hidden="true"></span> Based in <strong>San Diego, CA</strong></span>
+            <span class="pill">Open to onsite & remote roles</span>
+            <span class="pill">Google Workspace + Microsoft 365</span>
+          </div>
 
-<img
-class="headshot"
-src="assets/steve-moynihan-headshot.jpeg"
-alt="Steven Moynihan professional headshot"
-/>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-ghost" href="#contact">Email Me</a>
+            <a class="btn btn-soft" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <!-- Optional: enable later once you add a resume file -->
+            <!-- <a class="btn btn-ghost" href="assets/steven-moynihan-resume.pdf" target="_blank" rel="noreferrer">Resume (PDF)</a> -->
+          </div>
+        </div>
 
-<div>
-<strong>Steven Moynihan</strong><br/>
-<span style="color:var(--text-muted);font-size:.85rem;">
-Business Systems · IAM · Automation
-</span>
-</div>
+        <!-- Right hero -->
+        <div class="hero-side">
+          <div class="headshot-row">
+            <img
+              class="headshot"
+              src="assets/steve-moynihan-headshot.jpeg"
+              alt="Steven Moynihan professional headshot"
+              width="76"
+              height="76"
+              loading="eager"
+              decoding="async"
+            />
+            <div class="headshot-meta">
+              <strong>Steven Moynihan</strong>
+              <span>Systems Ownership · Governance · Automation</span>
+            </div>
+          </div>
 
-</div>
+          <div class="mini-grid" aria-label="Career highlights">
+            <div class="mini-card">
+              <span>Current</span>
+              <strong>Brio Technologies</strong>
+              <span>Solutions Engineer</span>
+            </div>
+            <div class="mini-card">
+              <span>Past</span>
+              <strong>66degrees</strong>
+              <span>Lead Workspace Engineer</span>
+            </div>
+            <div class="mini-card">
+              <span>Past</span>
+              <strong>Salesforce</strong>
+              <span>FedRAMP Tenant Work</span>
+            </div>
+            <div class="mini-card">
+              <span>Past</span>
+              <strong>Facebook</strong>
+              <span>Governance Cleanup</span>
+            </div>
+          </div>
 
-</header>
+          <div class="tag-cloud" aria-label="Focus areas">
+            <span class="tag">Joiner / Mover / Leaver</span>
+            <span class="tag">Least-Privilege Access</span>
+            <span class="tag">SaaS Governance</span>
+            <span class="tag">SSO / SAML</span>
+            <span class="tag">Admin SDK / Apps Script</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Operational Playbooks</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<main>
+    <main id="main">
+      <!-- Left column -->
+      <div>
+        <section id="about" class="card">
+          <div class="section-title">About</div>
+          <div class="muted">
+            I’m a Business Systems and Cloud Collaboration specialist with 15+ years of experience across Google Workspace, Microsoft 365, identity/access governance, and automation.
+            I’m often brought in when environments are growing fast, permissions are messy, and teams need repeatable processes—not ad hoc fixes.
+            <br><br>
+            My approach is practical and ops-friendly: clear ownership, clean access models, automation where it matters, and documentation that makes systems easy to run.
+          </div>
+        </section>
 
-<section>
-<div class="card">
+        <section id="impact" class="card">
+          <div class="section-title">Operational Impact</div>
+          <div class="muted">A few outcomes I focus on delivering (regardless of company size):</div>
 
-<div class="section-title">About</div>
+          <div class="impact-grid">
+            <div class="impact">
+              <strong>Faster onboarding & fewer tickets</strong>
+              <span>Standardize joiner workflows (groups, access, devices, training) so new hires are productive day 1.</span>
+            </div>
+            <div class="impact">
+              <strong>Reduced access risk</strong>
+              <span>Least-privilege by default, role-based groups, regular permission audits, and clean offboarding.</span>
+            </div>
+            <div class="impact">
+              <strong>Less operational friction</strong>
+              <span>Automate repetitive admin tasks and integrate systems so work flows instead of stalls.</span>
+            </div>
+            <div class="impact">
+              <strong>Better governance & clarity</strong>
+              <span>Clear system ownership, naming conventions, documentation, and runbooks that scale with headcount.</span>
+            </div>
+          </div>
+        </section>
 
-<p style="color:var(--text-muted);">
-I am a cloud collaboration and business systems specialist with 15+ years of experience supporting Google Workspace, Microsoft 365, identity architecture, and SaaS governance. I help organizations design secure, scalable operational environments that improve productivity and reduce administrative overhead.
-</p>
+        <section id="projects" class="card">
+          <div class="section-title">Signature Projects</div>
 
-</div>
-</section>
+          <div class="project-list">
+            <div class="project">
+              <h3>FedRAMP-Aware Google Workspace Tenant for .gov</h3>
+              <div class="meta">Salesforce · Cloud Collaboration Engineer</div>
+              <p>
+                Supported implementation of a FedRAMP-aligned tenant with hardened policies, scoped sharing controls, and access patterns designed to reduce risk while maintaining productivity for government workloads.
+              </p>
+              <div class="badge-row">
+                <span class="badge">FedRAMP</span>
+                <span class="badge">Tenant Design</span>
+                <span class="badge">Policy Hardening</span>
+                <span class="badge">Access Governance</span>
+              </div>
+            </div>
 
-<section>
-<div class="card">
+            <div class="project">
+              <h3>Post-Reduction Workspace Governance Re-Architecture</h3>
+              <div class="meta">Facebook · Google Workspace Specialist</div>
+              <p>
+                Redesigned OU/policy boundaries and delegated admin scopes to improve administrative clarity, reduce permission sprawl, and make ongoing governance significantly more manageable.
+              </p>
+              <div class="badge-row">
+                <span class="badge">OU Design</span>
+                <span class="badge">Delegated Admin</span>
+                <span class="badge">Security Posture</span>
+                <span class="badge">Operational Clarity</span>
+              </div>
+            </div>
 
-<div class="section-title">Signature Projects</div>
+            <div class="project">
+              <h3>Workspace Deployments at Scale + Repeatable Playbooks</h3>
+              <div class="meta">66degrees · Lead Workspace Deployment Engineer</div>
+              <p>
+                Led end-to-end deployments and migrations (discovery → cutover → stabilization), improved repeatability with playbooks/runbooks, and reduced post-migration support load through governance-first design.
+              </p>
+              <div class="badge-row">
+                <span class="badge">Migrations</span>
+                <span class="badge">CloudM</span>
+                <span class="badge">Change Management</span>
+                <span class="badge">Enablement</span>
+              </div>
+            </div>
 
-<div class="project">
-<strong>FedRAMP Google Workspace Tenant</strong>
-<p style="color:var(--text-muted);">
-Supported implementation of a FedRAMP-aligned tenant with hardened policies, restricted data sharing, and scoped access patterns for government workloads.
-</p>
-</div>
+            <div class="project">
+              <h3>Solutions Engineering: SaaS, Collaboration, and Automation</h3>
+              <div class="meta">Brio Technologies · Solutions Engineer</div>
+              <p>
+                Partner with stakeholders to align business needs with technical execution across collaboration tooling, security, and automation—often focused on access governance, workflow improvements, and platform operations.
+              </p>
+              <div class="badge-row">
+                <span class="badge">Stakeholder Alignment</span>
+                <span class="badge">SaaS Platforms</span>
+                <span class="badge">Automation</span>
+                <span class="badge">Operations</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
-<div class="project">
-<strong>Post-Reduction Workspace Governance Re-Architecture</strong>
-<p style="color:var(--text-muted);">
-Redesigned OU and policy model to improve administrative clarity, reduce security risk, and simplify long-term governance.
-</p>
-</div>
+      <!-- Right column -->
+      <div>
+        <section id="skills" class="card">
+          <div class="section-title">Skills & Focus Areas</div>
 
-<div class="project">
-<strong>Large-Scale Workspace Deployments</strong>
-<p style="color:var(--text-muted);">
-Led tenant migrations and deployments including discovery, planning, automation, and cutover execution while building repeatable frameworks.
-</p>
-</div>
+          <div class="skill-cols">
+            <div class="skill-col">
+              <strong>Business Systems & SaaS</strong>
+              <ul>
+                <li>Platform administration & configuration ownership</li>
+                <li>Integrations, permissions, system health</li>
+                <li>License management with cost + security in mind</li>
+                <li>Adoption enablement for underused tools</li>
+              </ul>
+            </div>
 
-</div>
-</section>
+            <div class="skill-col">
+              <strong>Identity, Access & Governance</strong>
+              <ul>
+                <li>Joiner / mover / leaver design and execution</li>
+                <li>Least-privilege access + group strategy</li>
+                <li>SSO / SAML, conditional access patterns</li>
+                <li>Permission audits and remediation cadence</li>
+              </ul>
+            </div>
 
-<section>
-<div class="card">
+            <div class="skill-col">
+              <strong>Automation & Tooling</strong>
+              <ul>
+                <li>Google Apps Script + Admin SDK</li>
+                <li>PowerShell automation</li>
+                <li>Workflow orchestration + logging</li>
+                <li>Runbooks, playbooks, reusable templates</li>
+              </ul>
+            </div>
 
-<div class="section-title">Career Snapshot</div>
+            <div class="skill-col">
+              <strong>Platforms</strong>
+              <ul>
+                <li>Google Workspace (Admin, security, governance)</li>
+                <li>Microsoft 365 / Entra ID (Azure AD)</li>
+                <li>Cloud migration tools (CloudM)</li>
+                <li>Cross-functional enablement & training</li>
+              </ul>
+            </div>
+          </div>
+        </section>
 
-<p style="color:var(--text-muted);">
-Solutions Engineer — Brio Technologies<br/>
-Lead Workspace Deployment Engineer — 66degrees<br/>
-Cloud Collaboration Engineer — Salesforce<br/>
-Google Workspace Specialist — Facebook
-</p>
+        <section id="experience" class="card">
+          <div class="section-title">Career Snapshot</div>
+          <ul class="timeline">
+            <li>
+              <span class="role">Solutions Engineer</span>
+              <span class="org">Brio Technologies · Present</span>
+              Bridging business needs with collaboration, SaaS operations, and automation.
+            </li>
+            <li>
+              <span class="role">Lead Google Workspace Deployment Engineer</span>
+              <span class="org">66degrees</span>
+              Owned complex deployments/migrations and shaped repeatable delivery playbooks.
+            </li>
+            <li>
+              <span class="role">Cloud Collaboration Engineer (FedRAMP Work)</span>
+              <span class="org">Salesforce</span>
+              Supported secure tenant design and policy alignment for regulated environments.
+            </li>
+            <li>
+              <span class="role">Google Workspace Specialist</span>
+              <span class="org">Facebook</span>
+              Governance cleanup and OU/policy redesign to improve maintainability and clarity.
+            </li>
+          </ul>
+        </section>
 
-</div>
-</section>
+        <section id="contact" class="card">
+          <div class="section-title">Contact</div>
+          <div class="muted" style="margin-bottom: 10px;">
+            Best way to reach me is email. I’m based in San Diego and open to onsite or remote roles.
+          </div>
 
-<section>
-<div class="card">
+          <div style="display:flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+            <a class="btn btn-primary" href="mailto:steve@stevesitsolutions.com">Email Me</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-soft" href="#projects">Projects</a>
+          </div>
 
-<div class="section-title">Contact</div>
+          <div class="muted" style="font-size: 0.92rem;">
+            <strong style="color: var(--text);">Email:</strong> <a href="mailto:steve@stevesitsolutions.com">steve@stevesitsolutions.com</a><br/>
+            <strong style="color: var(--text);">LinkedIn:</strong> <a href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank" rel="noreferrer">linkedin.com/in/stevenmoynihan</a>
+          </div>
+        </section>
+      </div>
+    </main>
 
-<p style="color:var(--text-muted);">
-Email:
-<a href="mailto:steve@stevesitsolutions.com">steve@stevesitsolutions.com</a>
-</p>
+    <footer>
+      © <span id="year"></span> Steven Moynihan. All rights reserved.
+    </footer>
+  </div>
 
-<p style="color:var(--text-muted);">
-LinkedIn:
-<a href="https://linkedin.com/in/stevenmoynihan" target="_blank">
-linkedin.com/in/stevenmoynihan
-</a>
-</p>
-
-</div>
-</section>
-
-</main>
-
-<footer style="text-align:center;color:#6b7280;font-size:.8rem;margin-top:20px;">
-© 2026 Steven Moynihan
-</footer>
-
-</div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
