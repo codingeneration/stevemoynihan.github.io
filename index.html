@@ -4,37 +4,37 @@
   <meta charset="UTF-8" />
   <title>Steven Moynihan | Business Systems, IAM & Automation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Steven Moynihan — Business Systems, IAM, and Automation (consulting/MSP background). Google Workspace, M365, governance, and scalable operations." />
+  <meta name="description" content="Steven Moynihan — Business Systems, Identity & Automation specialist. Governance-first delivery across Google Workspace, Microsoft 365, and regulated environments." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Steven Moynihan | Business Systems, IAM & Automation" />
-  <meta property="og:description" content="Governance-first systems work, informed by consulting/MSP delivery across diverse environments." />
-  <meta property="og:type" content="website" />
+  <!-- SEO Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Steven Moynihan",
+    "jobTitle": "Business Systems & Identity Engineer",
+    "url": "https://stevemoynihan.com",
+    "sameAs": ["https://www.linkedin.com/in/stevenmoynihan/"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Diego",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    }
+  }
+  </script>
 
   <style>
     :root {
       --bg: #020617;
       --bg2: #00030b;
-      --card: rgba(2,6,23,0.82);
-      --card2: rgba(15,23,42,0.62);
-      --border: rgba(148,163,184,0.22);
-      --border2: rgba(148,163,184,0.16);
-
+      --card: rgba(15,23,42,0.75);
+      --border: rgba(148,163,184,0.18);
       --text: #f8fafc;
       --muted: #94a3b8;
-
-      --accent: #22d3ee;
-      --accent2: #38bdf8;
-      --warm: #f97316;
-
-      --shadow: 0 18px 48px rgba(2,6,23,0.70);
-      --shadow2: 0 14px 38px rgba(2,6,23,0.55);
-
-      --r-lg: 18px;
-      --r-xl: 26px;
-
-      --max: 1140px;
-      --fast: 0.18s ease;
+      --accent: #38bdf8;
+      --radius: 18px;
+      --max: 1100px;
     }
 
     * { box-sizing: border-box; }
@@ -42,878 +42,215 @@
 
     body {
       margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
       color: var(--text);
-      line-height: 1.55;
       background:
-        radial-gradient(1100px 520px at 14% 12%, rgba(56,189,248,0.18), transparent 55%),
-        radial-gradient(900px 520px at 82% 26%, rgba(249,115,22,0.14), transparent 58%),
-        radial-gradient(900px 520px at 70% 84%, rgba(34,211,238,0.10), transparent 62%),
-        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+        radial-gradient(900px 500px at 10% 10%, rgba(56,189,248,0.18), transparent 55%),
+        radial-gradient(900px 500px at 90% 80%, rgba(249,115,22,0.12), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height: 1.55;
     }
 
-    a { color: var(--accent2); text-decoration: none; }
+    a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     .page {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 18px 14px 72px;
-    }
-    @media (min-width: 860px) {
-      .page { padding: 26px 18px 88px; }
+      padding: 28px 16px 80px;
     }
 
-    /* Top Nav */
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 2px 14px;
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: linear-gradient(180deg, rgba(2,6,23,0.86) 0%, rgba(2,6,23,0.55) 55%, rgba(2,6,23,0) 100%);
-      backdrop-filter: blur(8px);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 240px;
-    }
-    .mark {
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      color: #03111c;
-      background: conic-gradient(from 200deg, var(--accent), #6366f1, var(--warm), var(--accent));
-      box-shadow: 0 0 0 2px rgba(2,6,23,0.9), 0 0 24px rgba(34,211,238,0.40);
-      flex-shrink: 0;
-    }
-    .brand-lines { line-height: 1.2; }
-    .brand-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-    }
-    .brand-tag {
-      font-size: 0.74rem;
-      color: var(--muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
+    /* Nav */
     .nav {
-      display: none;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      font-size: 0.86rem;
-      color: var(--muted);
+      margin-bottom: 48px;
     }
-    @media (min-width: 860px) {
-      .nav { display: flex; }
-    }
-    .nav a {
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--muted);
-      transition: background var(--fast), border-color var(--fast), color var(--fast), transform var(--fast);
-    }
-    .nav a:hover {
-      background: rgba(15,23,42,0.65);
-      border-color: rgba(148,163,184,0.26);
-      color: var(--text);
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-    .nav a.primary {
-      border-color: rgba(56,189,248,0.35);
-      background: rgba(15,23,42,0.70);
-      color: var(--text);
-    }
+    .brand { font-weight: 800; letter-spacing: 0.02em; }
+    .nav a { margin-left: 18px; font-size: 0.9rem; color: var(--muted); }
 
-    .mobile-cta { display: inline-flex; gap: 8px; align-items: center; }
-    @media (min-width: 860px) { .mobile-cta { display: none; } }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform var(--fast), box-shadow var(--fast), background var(--fast), border-color var(--fast), color var(--fast);
-      white-space: nowrap;
-      text-decoration: none;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #04111b;
-      box-shadow: 0 12px 30px rgba(56,189,248,0.35);
-    }
-    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 18px 40px rgba(56,189,248,0.55); text-decoration: none; }
-    .btn-ghost {
-      background: rgba(15,23,42,0.66);
-      color: var(--text);
-      border-color: rgba(148,163,184,0.22);
-    }
-    .btn-ghost:hover { border-color: rgba(56,189,248,0.40); background: rgba(15,23,42,0.92); transform: translateY(-1px); text-decoration: none; }
-
-    /* Cards */
-    .card {
-      border-radius: var(--r-lg);
-      border: 1px solid var(--border);
-      background: var(--card);
-      box-shadow: var(--shadow2);
-    }
-
-    .hero {
-      padding: 20px 16px 18px;
-      border-radius: var(--r-xl);
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(900px 520px at 10% 20%, rgba(56,189,248,0.20), transparent 55%),
-        radial-gradient(800px 520px at 92% 40%, rgba(249,115,22,0.14), transparent 60%),
-        linear-gradient(180deg, rgba(2,6,23,0.84) 0%, rgba(2,6,23,0.70) 100%);
-      box-shadow: var(--shadow);
-    }
-
-    @media (min-width: 960px) {
-      .hero {
-        padding: 26px 24px 22px;
-        display: grid;
-        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-        gap: 22px;
-        align-items: start;
-      }
-    }
-
+    /* Hero */
+    .hero { max-width: 760px; margin-bottom: 64px; }
     .eyebrow {
-      font-size: 0.72rem;
-      text-transform: uppercase;
+      font-size: 0.75rem;
       letter-spacing: 0.18em;
-      color: rgba(56,189,248,0.85);
+      text-transform: uppercase;
+      color: var(--accent);
       font-weight: 700;
     }
-
     h1 {
-      margin: 10px 0 8px;
-      font-size: 1.85rem;
-      letter-spacing: 0.01em;
-      line-height: 1.18;
+      font-size: 2.45rem;
+      margin: 12px 0;
+      line-height: 1.15;
     }
-    @media (min-width: 700px) { h1 { font-size: 2.35rem; } }
-
-    .subhead { color: var(--muted); max-width: 62ch; font-size: 1.0rem; margin: 0 0 10px; }
-
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
-
-    .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 10px; border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.22);
-      background: rgba(15,23,42,0.62);
+    .subhead {
       color: var(--muted);
-      font-size: 0.82rem;
-    }
-    .dot { width: 8px; height: 8px; border-radius: 999px; background: #22c55e; box-shadow: 0 0 10px rgba(34,197,94,0.55); }
-
-    .hero-right { margin-top: 14px; display: flex; flex-direction: column; gap: 12px; }
-    @media (min-width: 960px) { .hero-right { margin-top: 0; } }
-
-    .profile-card {
-      padding: 14px 14px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(148,163,184,0.22);
-      background: rgba(15,23,42,0.56);
+      font-size: 1.05rem;
+      max-width: 65ch;
     }
 
-    .profile-top { display: flex; align-items: center; gap: 12px; }
-
-    .headshot {
-      width: 54px; height: 54px; border-radius: 999px;
-      object-fit: cover;
-      border: 1px solid rgba(56,189,248,0.45);
-      box-shadow: 0 0 0 3px rgba(2,6,23,0.70), 0 12px 30px rgba(56,189,248,0.18);
-      flex-shrink: 0;
-      background: rgba(15,23,42,0.90);
+    .actions {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-
-    .profile-meta .name { font-weight: 800; margin: 0; }
-    .profile-meta .line { margin: 2px 0 0; font-size: 0.85rem; color: var(--muted); }
-
-    .quick-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .tag {
-      font-size: 0.78rem;
-      padding: 4px 9px;
+    .btn {
+      padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.18);
-      background: rgba(2,6,23,0.55);
-      color: rgba(226,232,240,0.80);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.7);
+      color: var(--text);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, #38bdf8, #22d3ee);
+      color: #02131f;
+      border: none;
     }
 
-    /* KPI Cards */
-    .kpis { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 14px; }
-    @media (min-width: 740px) { .kpis { grid-template-columns: repeat(4, minmax(0,1fr)); } }
-    .kpi {
-      padding: 12px 12px 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(148,163,184,0.18);
-      background: rgba(15,23,42,0.56);
-      text-align: center;
+    /* Sections */
+    section { margin-bottom: 64px; }
+    h2 { font-size: 1.35rem; margin: 0 0 14px; }
+    p { color: var(--muted); margin: 0; }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 22px;
     }
-    .kpi b { display: block; font-size: 0.95rem; color: rgba(56,189,248,0.95); letter-spacing: 0.02em; }
-    .kpi span { display: block; font-size: 0.84rem; color: var(--muted); margin-top: 3px; line-height: 1.25; }
 
-    /* Layout */
-    .grid { margin-top: 16px; display: grid; grid-template-columns: 1fr; gap: 16px; }
-    @media (min-width: 980px) { .grid { grid-template-columns: minmax(0,1.55fr) minmax(0,1fr); gap: 18px; } }
-
-    .section { padding: 16px 16px 14px; }
-    @media (min-width: 860px) { .section { padding: 18px 18px 16px; } }
-
-    .title {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: rgba(148,163,184,0.95);
-      margin: 0 0 10px;
-    }
-    .h2 { margin: 0 0 10px; font-size: 1.25rem; letter-spacing: 0.01em; }
-    .p { margin: 0 0 10px; color: var(--muted); font-size: 0.95rem; }
-
-    /* Framework */
-    .framework { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
-    @media (min-width: 740px) { .framework { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-    @media (min-width: 980px) { .framework { grid-template-columns: repeat(3, minmax(0,1fr)); } }
-
-    .step {
-      padding: 12px 12px 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(148,163,184,0.18);
-      background: rgba(15,23,42,0.58);
-      transition: transform var(--fast), border-color var(--fast), background var(--fast);
-    }
-    .step:hover { transform: translateY(-2px); border-color: rgba(56,189,248,0.36); background: rgba(15,23,42,0.78); }
-    .step b { display: inline-flex; align-items: center; gap: 8px; font-size: 0.98rem; }
-    .step b .sig { width: 10px; height: 10px; border-radius: 999px; background: rgba(34,211,238,0.95); box-shadow: 0 0 14px rgba(34,211,238,0.35); }
-    .step p { margin: 8px 0 0; color: var(--muted); font-size: 0.92rem; }
+    /* Grids */
+    .grid { display: grid; gap: 16px; }
+    @media (min-width: 860px) { .grid { grid-template-columns: repeat(4, 1fr); } }
 
     /* Case Studies */
-    .cases { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
-    @media (min-width: 820px) { .cases { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+    .cases { display: grid; gap: 16px; }
+    @media (min-width: 860px) { .cases { grid-template-columns: repeat(2, 1fr); } }
 
-    .case {
-      padding: 14px 14px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(148,163,184,0.18);
-      background: rgba(15,23,42,0.58);
-      transition: transform var(--fast), border-color var(--fast), background var(--fast);
+    /* Experience */
+    .roles { display: grid; gap: 12px; }
+    .role {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
     }
-    .case:hover { transform: translateY(-2px); border-color: rgba(56,189,248,0.36); background: rgba(15,23,42,0.80); }
-    .case h3 { margin: 0 0 6px; font-size: 1.02rem; }
-    .case .meta { margin: 0 0 10px; color: rgba(148,163,184,0.95); font-size: 0.85rem; }
-
-    .case .row { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 8px; }
-    .case .kv b {
-      display: block;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(56,189,248,0.85);
-      margin-bottom: 3px;
-    }
-    .case .kv span { display: block; color: var(--muted); font-size: 0.92rem; line-height: 1.35; }
-
-    .toolchips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-    .chip {
-      font-size: 0.78rem;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148,163,184,0.18);
-      background: rgba(2,6,23,0.50);
-      color: rgba(226,232,240,0.82);
-    }
-
-    /* Timeline */
-    .timeline { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
-    .t-item {
-      padding: 12px 12px 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(148,163,184,0.18);
-      background: rgba(15,23,42,0.58);
-    }
-    .t-item .top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-    .t-item .role { font-weight: 800; color: rgba(226,232,240,0.95); }
-    .t-item .when { color: rgba(148,163,184,0.95); font-size: 0.86rem; }
-    .t-item .org { margin-top: 3px; color: rgba(148,163,184,0.95); font-size: 0.9rem; }
-    .t-item .desc { margin-top: 8px; color: var(--muted); font-size: 0.92rem; }
-
-    /* Domains */
-    .domains { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
-    @media (min-width: 820px) { .domains { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-
-    .domain {
-      padding: 12px 12px 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(148,163,184,0.18);
-      background: rgba(15,23,42,0.58);
-    }
-    .domain h3 { margin: 0 0 6px; font-size: 1.0rem; }
-    .domain ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; }
-    .domain li { margin: 6px 0; }
-
-    /* Highlights */
-    .highlights { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
-    @media (min-width: 820px) { .highlights { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-
-    .highlight {
-      padding: 12px 12px 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(148,163,184,0.18);
-      background: rgba(15,23,42,0.58);
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-    .highlight b { color: rgba(226,232,240,0.95); }
-
-    /* Philosophy */
-    .philo { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 10px; }
-    @media (min-width: 820px) { .philo { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-
-    .philo .box {
-      padding: 12px 12px 10px;
-      border-radius: 16px;
-      border: 1px solid rgba(148,163,184,0.18);
-      background: rgba(15,23,42,0.58);
-    }
-    .philo .box h3 { margin: 0 0 6px; font-size: 1.0rem; }
-    .philo .box p { margin: 0; color: var(--muted); font-size: 0.92rem; }
-
-    /* Contact */
-    .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-    .contact-line { margin-top: 6px; color: var(--muted); font-size: 0.92rem; }
+    .role b { font-weight: 700; }
+    .role span { color: var(--muted); font-size: 0.9rem; }
 
     footer {
-      margin-top: 18px;
       text-align: center;
-      color: rgba(148,163,184,0.65);
+      color: rgba(148,163,184,0.6);
       font-size: 0.82rem;
-      padding: 10px 0 0;
+      margin-top: 60px;
     }
-
-    /* Accessibility */
-    .skip {
-      position: absolute;
-      left: -9999px;
-      top: -9999px;
-      background: rgba(15,23,42,0.95);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(148,163,184,0.22);
-      z-index: 999;
-    }
-    .skip:focus { left: 14px; top: 14px; }
-    .divider { height: 1px; background: rgba(148,163,184,0.14); margin: 10px 0 0; }
-    .accent { color: rgba(56,189,248,0.95); }
   </style>
 </head>
 
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+<div class="page">
 
-  <div class="page">
-    <!-- Top bar -->
-    <div class="topbar">
-      <div class="brand">
-        <div class="mark">S</div>
-        <div class="brand-lines">
-          <div class="brand-name">Steven Moynihan</div>
-          <div class="brand-tag">Consulting/Delivery · IAM · Automation</div>
-        </div>
-      </div>
-
-      <div class="nav" aria-label="Primary navigation">
-        <a href="#approach">Approach</a>
-        <a href="#case-studies">Engagements</a>
-        <a href="#experience">Experience</a>
-        <a href="#domains">Skills</a>
-        <a href="#contact" class="primary">Contact</a>
-      </div>
-
-      <div class="mobile-cta">
-        <a class="btn btn-ghost" href="#contact">Contact</a>
-      </div>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="brand">Steven Moynihan</div>
+    <div>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </div>
-
-    <!-- Hero -->
-    <header class="hero" id="top">
-      <div>
-        <div class="eyebrow">San Diego · Consulting/MSP Delivery · Governance-first Systems</div>
-        <h1>Business Systems, IAM &amp; Automation Specialist</h1>
-        <p class="subhead">
-          I help organizations reduce operational friction and security risk by improving access governance,
-          automating workflows, and building scalable collaboration &amp; SaaS foundations.
-        </p>
-        <p class="subhead" style="font-size:0.96rem; margin-top: 0;">
-          Most of my career has been in consulting/MSP environments—supporting many orgs through migrations,
-          governance cleanups, and operational modernization. I’m now intentionally pursuing roles with deeper
-          ownership of a single company’s internal systems, applying the same governance-first approach end-to-end.
-        </p>
-
-        <div class="pill-row" aria-label="Quick details">
-          <span class="pill"><span class="dot" aria-hidden="true"></span> Based in <b>San Diego, CA</b></span>
-          <span class="pill">Consulting/MSP background</span>
-          <span class="pill">Google Workspace + Microsoft 365</span>
-        </div>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#case-studies">View Engagements</a>
-          <a class="btn btn-ghost" href="#experience">Career Evolution</a>
-          <a class="btn btn-ghost" href="assets/Steven_Moynihan_Resume_Modern_Dark_Tech.pdf" target="_blank" rel="noreferrer">Resume (PDF)</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank" rel="noreferrer">LinkedIn</a>
-        </div>
-
-        <div class="kpis" aria-label="Credibility highlights">
-          <div class="kpi">
-            <b>15+ Years</b>
-            <span>Cloud &amp; business systems work</span>
-          </div>
-          <div class="kpi">
-            <b>Many Environments</b>
-            <span>Patterns learned across orgs</span>
-          </div>
-          <div class="kpi">
-            <b>Regulated Work</b>
-            <span>FedRAMP-aware design exposure</span>
-          </div>
-          <div class="kpi">
-            <b>Automation + IAM</b>
-            <span>Governance-first tooling mindset</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-right">
-        <div class="profile-card" aria-label="Profile">
-          <div class="profile-top">
-            <!-- Put your image at: /assets/steve-moynihan-headshot.jpeg -->
-            <img class="headshot" src="assets/steve-moynihan-headshot.jpeg" alt="Steven Moynihan headshot" />
-            <div class="profile-meta">
-              <p class="name">Steven Moynihan</p>
-              <p class="line">Consulting Delivery · Governance · Automation</p>
-              <p class="line" style="margin-top:6px;">
-                <a href="mailto:stevenrmoynihan@gmail.com">stevenrmoynihan@gmail.com</a>
-              </p>
-            </div>
-          </div>
-          <div class="quick-tags" aria-label="Focus areas">
-            <span class="tag">Joiner / Mover / Leaver</span>
-            <span class="tag">Least-Privilege Access</span>
-            <span class="tag">SaaS Governance</span>
-            <span class="tag">SSO / SAML</span>
-            <span class="tag">Admin SDK / Apps Script</span>
-            <span class="tag">Runbooks &amp; Enablement</span>
-          </div>
-        </div>
-
-        <div class="profile-card" aria-label="Context">
-          <div class="title" style="margin-bottom:8px;">Context &amp; Fit</div>
-          <div class="muted" style="font-size:0.92rem; color: var(--muted);">
-            <b class="accent">Strength:</b> I’ve seen the same problems across many orgs and know the repeatable fixes.<br/>
-            <b class="accent">Focus:</b> I’m moving toward roles with deeper internal ownership to apply this end-to-end.
-          </div>
-          <div class="divider"></div>
-          <div class="muted" style="margin-top:10px; font-size:0.92rem; color: var(--muted);">
-            My work is strongest where operations and security meet: governance baselines, clear access models, automation,
-            and enablement that teams actually adopt.
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <main id="main" class="grid">
-
-      <!-- LEFT COLUMN -->
-      <div>
-
-        <!-- Brand Story -->
-        <section id="story" class="card section">
-          <p class="title">Professional Identity</p>
-          <h2 class="h2">Consulting exposure, governance-first mindset.</h2>
-          <p class="p">
-            Consulting/MSP work gives you a unique advantage: you see what “good” looks like across many organizations—and you also see
-            the recurring failure modes: messy permissions, unclear ownership, manual joiner/mover/leaver steps, underused tools,
-            and undocumented tribal knowledge.
-          </p>
-          <p class="p" style="margin-bottom:0;">
-            My value is bringing structure to those environments: define ownership, establish governance baselines, automate repetitive work,
-            and document what matters. I’m now intentionally leaning into roles where I can apply that same approach with deeper ownership
-            over a single company’s systems as they scale.
-          </p>
-        </section>
-
-        <!-- Approach -->
-        <section id="approach" class="card section">
-          <p class="title">My Delivery Framework</p>
-          <h2 class="h2">Discover → Stabilize → Automate → Scale → Enable</h2>
-          <p class="p" style="margin-bottom:0;">
-            A repeatable method I use across engagements to reduce risk, improve productivity, and create systems that are easier to run over time.
-          </p>
-
-          <div class="framework" aria-label="Delivery framework">
-            <div class="step">
-              <b><span class="sig" aria-hidden="true"></span>Discover</b>
-              <p>Inventory systems, owners, permissions, and workflows to surface friction, risk, and dependencies.</p>
-            </div>
-            <div class="step">
-              <b><span class="sig" aria-hidden="true"></span>Stabilize</b>
-              <p>Implement governance baselines, access models, and documentation to restore operational clarity.</p>
-            </div>
-            <div class="step">
-              <b><span class="sig" aria-hidden="true"></span>Automate</b>
-              <p>Remove manual work via scripting, integrations, and provisioning automation—especially for JML.</p>
-            </div>
-            <div class="step">
-              <b><span class="sig" aria-hidden="true"></span>Scale</b>
-              <p>Standardize role-based access, reusable playbooks, and escalation/vendor workflows that scale.</p>
-            </div>
-            <div class="step">
-              <b><span class="sig" aria-hidden="true"></span>Enable</b>
-              <p>Drive adoption with training, self-service patterns, and clear handoffs across teams.</p>
-            </div>
-            <div class="step">
-              <b><span class="sig" aria-hidden="true"></span>Measure</b>
-              <p>Track time-to-provision, ticket categories, audit findings, and adoption signals to show progress.</p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Engagements / Case Studies -->
-        <section id="case-studies" class="card section">
-          <p class="title">Selected Engagements</p>
-          <h2 class="h2">Representative work across different environments</h2>
-          <p class="p" style="margin-bottom:0;">
-            These examples describe the type of work I’ve delivered (often in partnership with internal stakeholders).
-            They’re written to be broadly applicable across industries and company sizes.
-          </p>
-
-          <div class="cases" aria-label="Engagements list">
-            <article class="case">
-              <h3>FedRAMP-Aware Google Workspace Tenant</h3>
-              <p class="meta">Salesforce · Consulting/Project team · Regulated environment</p>
-
-              <div class="row">
-                <div class="kv">
-                  <b>Challenge</b>
-                  <span>Align collaboration tooling to compliance needs while preventing risky sharing patterns and permission sprawl.</span>
-                </div>
-                <div class="kv">
-                  <b>Contribution</b>
-                  <span>Supported secure tenant configuration and policy alignment as part of a broader project team.</span>
-                </div>
-                <div class="kv">
-                  <b>Result</b>
-                  <span>Improved governance clarity and security posture through policy hardening and scoped access patterns.</span>
-                </div>
-              </div>
-
-              <div class="toolchips" aria-label="Tools used">
-                <span class="chip">Google Workspace Admin</span>
-                <span class="chip">IAM Governance</span>
-                <span class="chip">Policy Design</span>
-                <span class="chip">Audit Readiness</span>
-              </div>
-            </article>
-
-            <article class="case">
-              <h3>Workspace Governance Re-Architecture</h3>
-              <p class="meta">Meta (Facebook) · Engagement support · OU &amp; policy redesign</p>
-
-              <div class="row">
-                <div class="kv">
-                  <b>Challenge</b>
-                  <span>After org changes, admin boundaries and policies were inconsistent—driving governance risk and operational confusion.</span>
-                </div>
-                <div class="kv">
-                  <b>Contribution</b>
-                  <span>Proposed and implemented improved OU segmentation, policy boundaries, and delegated admin scopes.</span>
-                </div>
-                <div class="kv">
-                  <b>Result</b>
-                  <span>Reduced permission sprawl and improved maintainability—admin tasks became safer, faster, and more scalable.</span>
-                </div>
-              </div>
-
-              <div class="toolchips" aria-label="Tools used">
-                <span class="chip">OU Design</span>
-                <span class="chip">Delegated Admin</span>
-                <span class="chip">Least-Privilege</span>
-                <span class="chip">Operational Clarity</span>
-              </div>
-            </article>
-
-            <article class="case">
-              <h3>Large-Scale Workspace Deployments</h3>
-              <p class="meta">66degrees · Delivery lead · End-to-end migrations &amp; playbooks</p>
-
-              <div class="row">
-                <div class="kv">
-                  <b>Challenge</b>
-                  <span>Deliver consistent migrations across diverse customer environments while minimizing cutover and stabilization risk.</span>
-                </div>
-                <div class="kv">
-                  <b>Contribution</b>
-                  <span>Led discovery → planning → execution, built repeatable runbooks, and standardized cutover workflows.</span>
-                </div>
-                <div class="kv">
-                  <b>Result</b>
-                  <span>Improved delivery consistency and reduced post-migration support load via governance-first design and enablement.</span>
-                </div>
-              </div>
-
-              <div class="toolchips" aria-label="Tools used">
-                <span class="chip">CloudM</span>
-                <span class="chip">Cutover Planning</span>
-                <span class="chip">Automation</span>
-                <span class="chip">Enablement</span>
-              </div>
-            </article>
-
-            <article class="case">
-              <h3>Automation to Reduce Operational Friction</h3>
-              <p class="meta">Client work · Apps Script frameworks · Workflow modernization</p>
-
-              <div class="row">
-                <div class="kv">
-                  <b>Challenge</b>
-                  <span>Manual processes and inconsistent scripts created delays, errors, and administrative overhead.</span>
-                </div>
-                <div class="kv">
-                  <b>Contribution</b>
-                  <span>Designed Apps Script automation and operational templates to standardize workflows and reduce manual steps.</span>
-                </div>
-                <div class="kv">
-                  <b>Result</b>
-                  <span>Faster, more reliable execution of routine tasks; better adoption through clearer processes and documentation.</span>
-                </div>
-              </div>
-
-              <div class="toolchips" aria-label="Tools used">
-                <span class="chip">Google Apps Script</span>
-                <span class="chip">Admin SDK</span>
-                <span class="chip">Workflow Orchestration</span>
-                <span class="chip">Documentation</span>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <!-- Career Evolution -->
-        <section id="experience" class="card section">
-          <p class="title">Career Evolution</p>
-          <h2 class="h2">Consulting delivery → systems leadership track</h2>
-          <p class="p" style="margin-bottom:0;">
-            A progression focused on deeper ownership: platform governance, automation, cross-functional enablement,
-            and operating models that scale.
-          </p>
-
-          <div class="timeline" aria-label="Career timeline">
-            <div class="t-item">
-              <div class="top">
-                <div class="role">Solutions Engineer</div>
-                <div class="when">Brio Technologies · 2025–Present</div>
-              </div>
-              <div class="org">SaaS + collaboration strategy, governance, and automation guidance</div>
-              <div class="desc">Architecture-level support spanning stakeholder discovery, governance design, and operational maturity.</div>
-            </div>
-
-            <div class="t-item">
-              <div class="top">
-                <div class="role">Google Workspace Developer</div>
-                <div class="when">Karcher · 2025</div>
-              </div>
-              <div class="org">Automation frameworks replacing manual processes</div>
-              <div class="desc">Apps Script tooling and enablement focused on consistent outcomes and lower admin overhead.</div>
-            </div>
-
-            <div class="t-item">
-              <div class="top">
-                <div class="role">Lead Workspace Deployment Engineer</div>
-                <div class="when">66degrees · 2024</div>
-              </div>
-              <div class="org">End-to-end deployments/migrations at scale</div>
-              <div class="desc">Discovery → design → cutover → stabilization with playbooks that improve delivery consistency.</div>
-            </div>
-
-            <div class="t-item">
-              <div class="top">
-                <div class="role">Collaboration Systems Engineer (FedRAMP work)</div>
-                <div class="when">Salesforce · 2023–2024</div>
-              </div>
-              <div class="org">Governance and secure design in regulated environments</div>
-              <div class="desc">Security-aware policy alignment and governance controls within a broader program.</div>
-            </div>
-
-            <div class="t-item">
-              <div class="top">
-                <div class="role">Google Workspace Specialist</div>
-                <div class="when">Meta (Facebook) · 2022–2023</div>
-              </div>
-              <div class="org">Governance cleanup and OU/policy re-architecture</div>
-              <div class="desc">Built clarity through improved segmentation, delegated admin, and enforceable policy boundaries.</div>
-            </div>
-
-            <div class="t-item">
-              <div class="top">
-                <div class="role">Google Cloud Consultant II</div>
-                <div class="when">SADA · 2018–2020</div>
-              </div>
-              <div class="org">Enterprise consulting across Workspace operations</div>
-              <div class="desc">Platform optimization, troubleshooting, automation, and stakeholder enablement across client environments.</div>
-            </div>
-
-            <div class="t-item">
-              <div class="top">
-                <div class="role">Cloud Administrator</div>
-                <div class="when">Finchloom · 2017–2018</div>
-              </div>
-              <div class="org">Microsoft 365, Azure AD / identity security</div>
-              <div class="desc">Identity foundations (SSO/MFA/governance) that inform my current governance-first approach.</div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- RIGHT COLUMN -->
-      <aside>
-        <section id="domains" class="card section">
-          <p class="title">Skills &amp; Focus Areas</p>
-          <h2 class="h2">Domain expertise that translates anywhere</h2>
-
-          <div class="domains" aria-label="Domain expertise">
-            <div class="domain">
-              <h3>Business Systems &amp; SaaS</h3>
-              <ul>
-                <li>Platform administration &amp; configuration (often as delivery partner)</li>
-                <li>Integrations, permissions, and system health improvement</li>
-                <li>License governance with cost + security awareness</li>
-                <li>Adoption enablement for underused tooling</li>
-              </ul>
-            </div>
-
-            <div class="domain">
-              <h3>Identity, Access &amp; Governance</h3>
-              <ul>
-                <li>Joiner / mover / leaver design &amp; operationalization</li>
-                <li>Least-privilege and role-based access patterns</li>
-                <li>Permission audits and remediation cadence</li>
-                <li>SSO / SAML strategy and admin boundaries</li>
-              </ul>
-            </div>
-
-            <div class="domain">
-              <h3>Automation &amp; Tooling</h3>
-              <ul>
-                <li>Apps Script + Admin SDK automation</li>
-                <li>GAM / API-driven admin workflows</li>
-                <li>Workflow orchestration + logging patterns</li>
-                <li>Runbooks, playbooks, reusable templates</li>
-              </ul>
-            </div>
-
-            <div class="domain">
-              <h3>Platforms</h3>
-              <ul>
-                <li>Google Workspace (admin, security, governance)</li>
-                <li>Microsoft 365 / Entra ID (Azure AD)</li>
-                <li>Migration tooling (e.g., CloudM)</li>
-                <li>Enablement, training, and change management</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section class="card section" id="highlights">
-          <p class="title">Signature Strengths</p>
-          <h2 class="h2">What clients &amp; teams rely on</h2>
-
-          <div class="highlights" aria-label="Signature highlights">
-            <div class="highlight"><b>Pattern recognition across orgs:</b> consulting exposure reveals what breaks at scale—and how to fix it.</div>
-            <div class="highlight"><b>Governance-first delivery:</b> establish clear access models and admin boundaries before complexity grows.</div>
-            <div class="highlight"><b>Automation mindset:</b> reduce toil and error rates by standardizing and scripting repeatable processes.</div>
-            <div class="highlight"><b>Enablement + clarity:</b> documentation and training that make systems usable and maintainable.</div>
-          </div>
-        </section>
-
-        <section class="card section" id="philosophy">
-          <p class="title">Work Philosophy</p>
-          <h2 class="h2">Strong systems feel boring—in the best way</h2>
-
-          <div class="philo" aria-label="Work philosophy">
-            <div class="box">
-              <h3>Clarity beats complexity</h3>
-              <p>Ownership, naming conventions, and documented access models prevent chaos as orgs scale.</p>
-            </div>
-            <div class="box">
-              <h3>Automate the repetitive</h3>
-              <p>Remove toil with scripting and integrations so teams can focus on high-value work.</p>
-            </div>
-            <div class="box">
-              <h3>Security is operational</h3>
-              <p>Least-privilege access and audits are ongoing guardrails—not one-time projects.</p>
-            </div>
-            <div class="box">
-              <h3>Adoption matters</h3>
-              <p>Systems only create value if people use them—enablement is part of the job.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" class="card section">
-          <p class="title">Contact</p>
-          <h2 class="h2">Let’s connect</h2>
-          <p class="p" style="margin-bottom:0;">
-            Best way to reach me is email. I’m based in San Diego and open to onsite, hybrid, or remote roles depending on fit.
-          </p>
-
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:stevenrmoynihan@gmail.com">Email Me</a>
-            <a class="btn btn-ghost" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn btn-ghost" href="#case-studies">Engagements</a>
-          </div>
-
-          <div class="contact-line">
-            Email: <a href="mailto:stevenrmoynihan@gmail.com">stevenrmoynihan@gmail.com</a><br/>
-            LinkedIn: <a href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank" rel="noreferrer">linkedin.com/in/stevenmoynihan</a>
-          </div>
-        </section>
-      </aside>
-    </main>
-
-    <footer>
-      © <span id="year"></span> Steven Moynihan · Governance-first delivery across diverse environments.
-    </footer>
   </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="eyebrow">San Diego · Business Systems · IAM · Automation</div>
+    <h1>Governance-first systems that scale.</h1>
+    <p class="subhead">
+      I help organizations reduce access risk and operational friction by strengthening
+      identity governance, automating workflows, and improving collaboration platforms.
+      My background spans consulting, enterprise, and regulated environments.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#work">View Selected Work</a>
+      <a class="btn" href="assets/Steven_Moynihan_Resume.pdf" target="_blank">Resume (PDF)</a>
+      <a class="btn" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank">LinkedIn</a>
+    </div>
+  </header>
+
+  <!-- WHAT I DO -->
+  <section id="work">
+    <h2>What I do</h2>
+    <div class="grid">
+      <div class="card"><b>Identity & Access Governance</b><p>JML design, least-privilege, SSO/SAML, admin boundaries.</p></div>
+      <div class="card"><b>Business Systems & SaaS</b><p>Google Workspace & Microsoft 365 platform ownership.</p></div>
+      <div class="card"><b>Automation & Tooling</b><p>Apps Script, GAM, PowerShell, API-driven workflows.</p></div>
+      <div class="card"><b>Regulated Environments</b><p>Security-aware delivery with FedRAMP exposure.</p></div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section>
+    <h2>Selected work</h2>
+    <div class="cases">
+      <div class="card">
+        <b>FedRAMP-Aware Google Workspace Environment</b>
+        <p>Supported governance and security posture improvements in a regulated enterprise environment.</p>
+      </div>
+      <div class="card">
+        <b>Automation-Driven Operational Modernization</b>
+        <p>Reduced manual admin overhead through Apps Script, GAM, and workflow standardization.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About my approach</h2>
+    <div class="card">
+      <p>
+        Consulting exposure creates pattern recognition: you see the same access issues,
+        governance gaps, and operational bottlenecks across many organizations.
+        My focus is bringing structure early—clear ownership, least-privilege access,
+        and automation—so systems remain boring, predictable, and scalable.
+      </p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Recent experience</h2>
+    <div class="card roles">
+      <div class="role"><b>GWS Solutions Engineer — Brio Technologies</b><span>2025–Present</span></div>
+      <div class="role"><b>Workspace Deployment Lead — 66degrees</b><span>2024</span></div>
+      <div class="role"><b>Collaboration Systems Engineer — Salesforce</b><span>2023–2024</span></div>
+      <div class="role"><b>Senior Google Workspace Engineer — Meta</b><span>2022–2023</span></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Let’s connect</h2>
+    <div class="card">
+      <p>Based in San Diego. Open to onsite, hybrid, or remote roles.</p>
+      <div class="actions" style="margin-top:16px;">
+        <a class="btn primary" href="mailto:stevenrmoynihan@gmail.com">Email Me</a>
+        <a class="btn" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Steven Moynihan · Governance-first systems delivery
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
