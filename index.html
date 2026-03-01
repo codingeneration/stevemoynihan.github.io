@@ -3,835 +3,1110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Steven Moynihan | Business Systems, IAM & Automation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Steven Moynihan — Business Systems, Identity & Automation specialist. Governance-first delivery across Google Workspace, Microsoft 365, and regulated environments." />
-
-  <!-- Google Fonts -->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- SEO Schema -->
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Steven Moynihan",
-    "jobTitle": "Business Systems & Identity Engineer",
-    "url": "https://stevemoynihan.com",
-    "sameAs": ["https://www.linkedin.com/in/stevenmoynihan/"],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "San Diego",
-      "addressRegion": "CA",
-      "addressCountry": "US"
-    }
-  }
-  </script>
-
+  <meta name="description" content="Senior Google Workspace & cloud collaboration engineer specializing in identity governance, automation, and compliance-driven environments." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg:      #050a14;
-      --surface: #0b1324;
-      --card:    rgba(11,19,36,0.85);
-      --border:  rgba(148,163,184,0.12);
-      --border-hover: rgba(56,189,248,0.35);
-      --text:    #eef2f7;
-      --muted:   #7d8fa8;
-      --dim:     #4a5568;
-      --accent:  #38bdf8;
-      --accent2: #7dd3fc;
-      --warm:    #f97316;
-      --green:   #34d399;
-      --radius:  16px;
-      --max:     1080px;
-      --mono:    'JetBrains Mono', monospace;
-      --serif:   'Fraunces', Georgia, serif;
-      --sans:    'DM Sans', system-ui, sans-serif;
+      --bg: #0a0c0f;
+      --bg2: #0f1216;
+      --bg3: #141820;
+      --border: rgba(255,255,255,0.07);
+      --border-bright: rgba(255,255,255,0.14);
+      --text: #e8eaed;
+      --muted: #7a8494;
+      --accent: #4fffb0;
+      --accent2: #00c8ff;
+      --accent-dim: rgba(79,255,176,0.12);
+      --accent-dim2: rgba(0,200,255,0.1);
+      --card: #111519;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+```
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: var(--sans);
-      color: var(--text);
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(ellipse 1000px 600px at 5% 0%, rgba(56,189,248,0.11) 0%, transparent 60%),
-        radial-gradient(ellipse 800px 500px at 95% 90%, rgba(249,115,22,0.09) 0%, transparent 55%),
-        radial-gradient(ellipse 600px 400px at 60% 40%, rgba(56,189,248,0.04) 0%, transparent 50%);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+html { scroll-behavior: smooth; }
 
-    /* Subtle grid overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(148,163,184,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148,163,184,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
-    }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-    a:hover { color: var(--accent2); }
+/* ── NOISE OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
 
-    .page {
-      position: relative;
-      z-index: 1;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 20px 100px;
-    }
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10,12,15,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
 
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--border);
-      background: rgba(5,10,20,0.82);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      margin: 0 -20px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
 
-    .brand {
-      font-family: var(--serif);
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--text);
-      letter-spacing: -0.01em;
-    }
+.nav-logo span { color: var(--accent); }
 
-    .nav-links { display: flex; gap: 6px; }
-    .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--muted);
-      padding: 6px 12px;
-      border-radius: 8px;
-      transition: color 0.2s, background 0.2s;
-      letter-spacing: 0.02em;
-    }
-    .nav-links a:hover {
-      color: var(--text);
-      background: rgba(148,163,184,0.08);
-      text-decoration: none;
-    }
+nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
 
-    /* ── HERO ── */
-    .hero {
-      padding: 80px 0 72px;
-      max-width: 780px;
-    }
+nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
 
-    .eyebrow {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 22px;
-    }
-    .eyebrow::before {
-      content: '';
-      display: inline-block;
-      width: 28px;
-      height: 1px;
-      background: var(--accent);
-      opacity: 0.7;
-    }
+nav a:hover { color: var(--accent); }
 
-    h1 {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.025em;
-      color: var(--text);
-      margin-bottom: 22px;
-    }
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 2rem 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
 
-    h1 em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--accent2);
-    }
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards 0.2s;
+}
 
-    .subhead {
-      color: var(--muted);
-      font-size: 1.05rem;
-      max-width: 58ch;
-      line-height: 1.7;
-      font-weight: 300;
-    }
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.8rem;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.35s;
+}
 
-    .actions {
-      margin-top: 32px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 11px 20px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.875rem;
-      border: 1px solid var(--border);
-      background: rgba(11,19,36,0.8);
-      color: var(--text);
-      transition: border-color 0.2s, background 0.2s, transform 0.15s;
-      cursor: pointer;
-    }
-    .btn:hover {
-      border-color: var(--border-hover);
-      background: rgba(56,189,248,0.06);
-      transform: translateY(-1px);
-      text-decoration: none;
-      color: var(--text);
-    }
-    .btn.primary {
-      background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 100%);
-      color: #03111e;
-      border: none;
-      font-weight: 700;
-    }
-    .btn.primary:hover {
-      background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%);
-      transform: translateY(-1px);
-    }
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.5s;
+}
 
-    /* ── SECTION STRUCTURE ── */
-    section { margin-bottom: 72px; }
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.8rem;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.65s;
+}
 
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--dim);
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
+.badge {
+  background: var(--bg3);
+  border: 1px solid var(--border-bright);
+  color: var(--muted);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
 
-    h2 {
-      font-family: var(--serif);
-      font-size: 1.55rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 24px;
-      color: var(--text);
-    }
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.8s;
+}
 
-    /* ── CARDS ── */
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 24px;
-      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
-      backdrop-filter: blur(8px);
-    }
-    .card:hover {
-      border-color: rgba(56,189,248,0.22);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(56,189,248,0.08);
-    }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.8rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
 
-    /* ── WHAT I DO GRID ── */
-    .skills-grid {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: 1fr 1fr;
-    }
-    @media (min-width: 720px) {
-      .skills-grid { grid-template-columns: repeat(4, 1fr); }
-    }
+.btn-primary {
+  background: var(--accent);
+  color: #0a0c0f;
+  font-weight: 500;
+}
+.btn-primary:hover { background: #7affd0; transform: translateY(-1px); }
 
-    .skill-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 22px 20px;
-      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
-    }
-    .skill-card:hover {
-      border-color: rgba(56,189,248,0.22);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-    }
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border-bright);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
 
-    .skill-icon {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-      display: block;
-    }
+/* ── STATS BAR ── */
+.stats-bar {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+  padding: 1.8rem 2rem;
+}
 
-    .skill-card b {
-      display: block;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
+.stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
 
-    .skill-card p {
-      color: var(--muted);
-      font-size: 0.82rem;
-      line-height: 1.55;
-    }
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
 
-    .skill-tags {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      background: rgba(56,189,248,0.08);
-      border: 1px solid rgba(56,189,248,0.2);
-      color: var(--accent2);
-      padding: 3px 8px;
-      border-radius: 5px;
-      letter-spacing: 0.04em;
-    }
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
 
-    /* ── CASE STUDIES ── */
-    .cases { display: grid; gap: 16px; }
-    @media (min-width: 720px) { .cases { grid-template-columns: repeat(2, 1fr); } }
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
-    .case-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
-    }
-    .case-card:hover {
-      border-color: rgba(56,189,248,0.22);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-    }
+/* ── SECTIONS ── */
+section {
+  padding: 6rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
 
-    .case-tag {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 500;
-    }
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
 
-    .case-card h3 {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      line-height: 1.3;
-    }
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  letter-spacing: -0.015em;
+  margin-bottom: 3.5rem;
+  line-height: 1.15;
+}
 
-    .case-card p {
-      color: var(--muted);
-      font-size: 0.875rem;
-      line-height: 1.65;
-    }
+h2 span { color: var(--accent); }
 
-    .case-metrics {
-      display: flex;
-      gap: 20px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      margin-top: auto;
-    }
+/* ── SKILLS GRID ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
 
-    .metric { display: flex; flex-direction: column; gap: 3px; }
-    .metric-value {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .metric-label {
-      font-size: 0.72rem;
-      color: var(--dim);
-      letter-spacing: 0.04em;
-    }
+.skill-card {
+  background: var(--card);
+  padding: 2rem;
+  transition: background 0.2s;
+}
 
-    /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 720px) {
-      .about-grid { grid-template-columns: 2fr 1fr; }
-    }
+.skill-card:hover { background: var(--bg3); }
 
-    .about-text p {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.75;
-      font-weight: 300;
-    }
+.skill-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 1.2rem;
+  color: var(--accent);
+}
 
-    .about-text p + p { margin-top: 14px; }
+.skill-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
 
-    .about-highlights { display: flex; flex-direction: column; gap: 12px; }
+.skill-card p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
 
-    .highlight {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 18px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-    .highlight-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
-    .highlight-text {
-      font-size: 0.85rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .highlight-text strong {
-      display: block;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 0.82rem;
-      margin-bottom: 3px;
-    }
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+}
 
-    /* ── EXPERIENCE ── */
-    .roles { display: flex; flex-direction: column; }
+.skill-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
 
-    .role {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: start;
-      gap: 12px;
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.2s;
-    }
-    .role:first-child { border-top: 1px solid var(--border); }
-    .role:hover { background: rgba(56,189,248,0.03); }
+/* ── CASE STUDIES ── */
+.cases {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 
-    .role-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text);
-      margin-bottom: 3px;
-    }
-    .role-company {
-      font-size: 0.82rem;
-      color: var(--muted);
-      font-family: var(--mono);
-    }
-    .role-date {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      color: var(--dim);
-      text-align: right;
-      white-space: nowrap;
-      padding-top: 2px;
-    }
+.case-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
 
-    /* ── CONTACT ── */
-    .contact-inner {
-      display: grid;
-      gap: 16px;
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 720px) {
-      .contact-inner { grid-template-columns: 1fr 1fr; }
-    }
+.case-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
 
-    .contact-main p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-      margin-bottom: 24px;
-      font-weight: 300;
-    }
+.case-card:hover { border-color: var(--border-bright); }
+.case-card:hover::before { transform: scaleY(1); }
 
-    .contact-detail {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .contact-detail-label {
-      font-family: var(--mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--dim);
-    }
-    .contact-detail-value {
-      font-size: 0.9rem;
-      color: var(--text);
-      font-weight: 500;
-    }
-    .contact-detail-value.available {
-      color: var(--green);
-    }
+.case-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
 
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      color: var(--dim);
-      font-size: 0.78rem;
-      padding-top: 48px;
-      border-top: 1px solid var(--border);
-      font-family: var(--mono);
-      letter-spacing: 0.04em;
-    }
+.case-company {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent2);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
 
-    /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+.case-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
 
-    /* stagger children */
-    .stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
-    .stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.12s; }
-    .stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.19s; }
-    .stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.26s; }
+.case-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.7rem;
+  white-space: nowrap;
+}
 
-    /* ── MOBILE ── */
-    @media (max-width: 600px) {
-      h1 { font-size: 2.1rem; }
-      .nav-links a { display: none; }
-      .nav-links a:last-child { display: inline; }
-      .hero { padding: 48px 0 56px; }
-    }
+.case-card p {
+  color: var(--muted);
+  font-size: 0.93rem;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+.case-outcomes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.outcome {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.outcome-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.outcome-desc {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+/* ── EXPERIENCE TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.35rem;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+
+.timeline-item.current::before {
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.tl-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.tl-company {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.tl-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.tl-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+
+.tl-badge.full { background: var(--accent-dim); color: var(--accent); }
+.tl-badge.contract { background: var(--accent-dim2); color: var(--accent2); }
+
+.tl-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--accent2);
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.04em;
+}
+
+.tl-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tl-bullets li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.tl-bullets li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ── CERTS ── */
+.certs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 1.1rem 1.4rem;
+  flex: 1;
+  min-width: 240px;
+  transition: border-color 0.2s;
+}
+
+.cert-card:hover { border-color: var(--accent); }
+
+.cert-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.cert-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.cert-issuer {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.67rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+/* ── CONTACT ── */
+#contact {
+  padding: 5rem 2rem;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+
+.contact-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contact-text h2 {
+  margin-bottom: 0.6rem;
+}
+
+.contact-text p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border);
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+footer p {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 680px) {
+  nav ul { gap: 1rem; }
+  nav ul li:nth-child(3), nav ul li:nth-child(4) { display: none; }
+  .stats-inner { gap: 1.5rem; }
+  .case-header { flex-direction: column; }
+}
+```
+
   </style>
-
 </head>
-
 <body>
-<div class="page">
 
-  <!-- NAV -->
+<!-- NAV -->
 
-  <nav>
-    <div class="brand">Steven Moynihan</div>
-    <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<nav>
+  <a href="#hero" class="nav-logo">SM<span>.</span></a>
+  <ul>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <!-- HERO -->
+<!-- HERO -->
 
-  <header class="hero">
-    <div class="eyebrow">San Diego · IAM · Business Systems · Automation</div>
-    <h1>Governance-first systems<br><em>that scale.</em></h1>
-    <p class="subhead">
-      I help organizations reduce access risk and operational friction — strengthening
-      identity governance, automating workflows, and building platforms that stay
-      predictable across consulting, enterprise, and regulated environments.
-    </p>
-    <div class="actions">
-      <a class="btn primary" href="#contact">Get in Touch</a>
-      <a class="btn" href="#work">View Selected Work</a>
-      <a class="btn" href="assets/Steven_Moynihan_Resume_Modern_Dark_Tech.pdf" target="_blank">Resume ↗</a>
-    </div>
-  </header>
-
-  <!-- WHAT I DO -->
-
-  <section id="work">
-    <div class="section-label">Expertise</div>
-    <h2>What I do</h2>
-    <div class="skills-grid stagger">
-      <div class="skill-card">
-        <span class="skill-icon">🔐</span>
-        <b>Identity & Access Governance</b>
-        <p>JML lifecycle design, least-privilege enforcement, SSO/SAML architecture, and admin boundary definition.</p>
-        <div class="skill-tags">
-          <span class="tag">IAM</span>
-          <span class="tag">SSO</span>
-          <span class="tag">SAML</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">☁️</span>
-        <b>Business Systems & SaaS</b>
-        <p>End-to-end platform ownership for Google Workspace and Microsoft 365 at enterprise scale.</p>
-        <div class="skill-tags">
-          <span class="tag">GWS</span>
-          <span class="tag">M365</span>
-          <span class="tag">Admin</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">⚙️</span>
-        <b>Automation & Tooling</b>
-        <p>API-driven workflows, scripted provisioning, and operational tooling that eliminates repetitive overhead.</p>
-        <div class="skill-tags">
-          <span class="tag">Apps Script</span>
-          <span class="tag">GAM</span>
-          <span class="tag">PowerShell</span>
-        </div>
-      </div>
-      <div class="skill-card">
-        <span class="skill-icon">🛡️</span>
-        <b>Regulated Environments</b>
-        <p>Security-aware delivery with hands-on FedRAMP exposure and compliance-aligned governance design.</p>
-        <div class="skill-tags">
-          <span class="tag">FedRAMP</span>
-          <span class="tag">Compliance</span>
-          <span class="tag">GovCloud</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASE STUDIES -->
-
-  <section class="fade-up">
-    <div class="section-label">Selected Work</div>
-    <h2>Case studies</h2>
-    <div class="cases">
-      <div class="case-card">
-        <div>
-          <div class="case-tag">Google Workspace · FedRAMP · Compliance</div>
-          <h3>FedRAMP-Aware Google Workspace Environment</h3>
-          <p>
-            Led governance and security posture improvements in a regulated enterprise environment.
-            Established admin boundaries, access reviews, and audit-ready logging aligned to
-            federal compliance requirements across a multi-domain Workspace deployment.
-          </p>
-        </div>
-        <div class="case-metrics">
-          <div class="metric">
-            <span class="metric-value">100%</span>
-            <span class="metric-label">Audit coverage</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">3× </span>
-            <span class="metric-label">Review cycle speed</span>
-          </div>
-        </div>
-      </div>
-      <div class="case-card">
-        <div>
-          <div class="case-tag">Automation · Ops · Apps Script · GAM</div>
-          <h3>Automation-Driven Operational Modernization</h3>
-          <p>
-            Eliminated high-volume manual admin tasks by designing and deploying Apps Script
-            and GAM-based automation pipelines. Standardized provisioning workflows and reduced
-            error rates across a large user base.
-          </p>
-        </div>
-        <div class="case-metrics">
-          <div class="metric">
-            <span class="metric-value">60%</span>
-            <span class="metric-label">Admin time saved</span>
-          </div>
-          <div class="metric">
-            <span class="metric-value">↓ Errors</span>
-            <span class="metric-label">Manual process risk</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-
-  <section id="about" class="fade-up">
-    <div class="section-label">Approach</div>
-    <h2>About my approach</h2>
-    <div class="about-grid">
-      <div class="card about-text">
-        <p>
-          Consulting exposure creates pattern recognition: you see the same access issues,
-          governance gaps, and operational bottlenecks across many organizations.
-        </p>
-        <p>
-          My focus is bringing structure early — clear ownership, least-privilege access,
-          and automation — so systems remain boring, predictable, and scalable.
-          Boring infrastructure is a feature, not a flaw.
-        </p>
-        <p>
-          I work best where the technical and organizational layers intersect: designing
-          systems that are secure by default, documented for the next person, and built
-          to handle whatever comes next.
-        </p>
-      </div>
-      <div class="about-highlights">
-        <div class="highlight">
-          <span class="highlight-icon">🎯</span>
-          <div class="highlight-text">
-            <strong>Governance-first mindset</strong>
-            Structure before scale — ownership and access defined before complexity compounds.
-          </div>
-        </div>
-        <div class="highlight">
-          <span class="highlight-icon">🔁</span>
-          <div class="highlight-text">
-            <strong>Automation by default</strong>
-            If a human is doing it repeatedly, it should be a script or a workflow.
-          </div>
-        </div>
-        <div class="highlight">
-          <span class="highlight-icon">🏢</span>
-          <div class="highlight-text">
-            <strong>Cross-environment depth</strong>
-            From regulated federal environments to high-growth SaaS — the patterns transfer.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-
-  <section id="experience" class="fade-up">
-    <div class="section-label">Career</div>
-    <h2>Recent experience</h2>
-    <div class="roles">
-      <div class="role">
-        <div>
-          <div class="role-title">GWS Solutions Engineer</div>
-          <div class="role-company">Brio Technologies</div>
-        </div>
-        <div class="role-date">2025 — Present</div>
-      </div>
-      <div class="role">
-        <div>
-          <div class="role-title">Workspace Deployment Lead</div>
-          <div class="role-company">66degrees</div>
-        </div>
-        <div class="role-date">2024</div>
-      </div>
-      <div class="role">
-        <div>
-          <div class="role-title">Collaboration Systems Engineer</div>
-          <div class="role-company">Salesforce</div>
-        </div>
-        <div class="role-date">2023 — 2024</div>
-      </div>
-      <div class="role">
-        <div>
-          <div class="role-title">Senior Google Workspace Engineer</div>
-          <div class="role-company">Meta</div>
-        </div>
-        <div class="role-date">2022 — 2023</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-
-  <section id="contact" class="fade-up">
-    <div class="section-label">Contact</div>
-    <h2>Let's connect</h2>
-    <div class="contact-inner">
-      <div class="contact-main">
-        <p>
-          Based in San Diego. Open to onsite, hybrid, or remote roles. If you're
-          working on identity infrastructure, platform consolidation, or building
-          out governance in a scaling environment, I'd like to hear about it.
-        </p>
-        <div class="actions">
-          <a class="btn primary" href="mailto:stevenrmoynihan@gmail.com">Email Me</a>
-          <a class="btn" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank">LinkedIn ↗</a>
-        </div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div class="contact-detail">
-          <span class="contact-detail-label">Location</span>
-          <span class="contact-detail-value">San Diego, CA</span>
-        </div>
-        <div class="contact-detail">
-          <span class="contact-detail-label">Work preference</span>
-          <span class="contact-detail-value">Onsite · Hybrid · Remote</span>
-        </div>
-        <div class="contact-detail">
-          <span class="contact-detail-label">Status</span>
-          <span class="contact-detail-value available">● Open to opportunities</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © <span id="year"></span> Steven Moynihan · Governance-first systems delivery
-  </footer>
-
+<div id="hero">
+  <div class="hero-eyebrow">San Diego · Available for onsite, hybrid & remote</div>
+  <h1>Governance&#8209;first<br>systems that <em>scale.</em></h1>
+  <p class="hero-sub">I help organizations reduce access risk and operational friction—through identity governance, cloud migration, and automation that keeps things boring, predictable, and production-ready.</p>
+  <div class="hero-badges">
+    <span class="badge">Google Workspace</span>
+    <span class="badge">Microsoft 365</span>
+    <span class="badge">IAM / SSO / SAML</span>
+    <span class="badge">Apps Script</span>
+    <span class="badge">GAM / PowerShell</span>
+    <span class="badge">FedRAMP</span>
+    <span class="badge">Cloud Migration</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#work" class="btn btn-primary">View My Work</a>
+    <a href="assets/Steven_Moynihan_Resume_Modern_Dark_Tech.pdf" class="btn btn-ghost" target="_blank">Resume (PDF)</a>
+    <a href="https://www.linkedin.com/in/stevenmoynihan/" class="btn btn-ghost" target="_blank">LinkedIn</a>
+  </div>
 </div>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+<!-- STATS BAR -->
 
-  // Intersection Observer for scroll animations
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat">
+      <span class="stat-num">7+</span>
+      <span class="stat-label">Years in GWS & Cloud</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">10k+</span>
+      <span class="stat-label">Users Migrated</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">5</span>
+      <span class="stat-label">Enterprise Clients</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">FedRAMP</span>
+      <span class="stat-label">Regulated Env. Exposure</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">Meta · SFDC</span>
+      <span class="stat-label">Top-Tier Pedigree</span>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+
+<section id="skills">
+  <div class="section-label">Core Capabilities</div>
+  <h2>What I <span>do</span></h2>
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      <h3>Identity &amp; Access Governance</h3>
+      <p>JML design, least-privilege enforcement, admin boundary definition, and SSO/SAML implementation across enterprise environments.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">SSO / SAML</span>
+        <span class="skill-tag">JML Workflows</span>
+        <span class="skill-tag">Least-Privilege</span>
+        <span class="skill-tag">RBAC</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <path d="M8 21h8M12 17v4"/>
+      </svg>
+      <h3>Cloud Collaboration Platforms</h3>
+      <p>End-to-end ownership of Google Workspace and Microsoft 365—migrations, governance, configuration hardening, and user adoption.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Google Workspace</span>
+        <span class="skill-tag">Microsoft 365</span>
+        <span class="skill-tag">Azure AD</span>
+        <span class="skill-tag">Intune</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <polyline points="16 18 22 12 16 6"/>
+        <polyline points="8 6 2 12 8 18"/>
+      </svg>
+      <h3>Automation &amp; Tooling</h3>
+      <p>Eliminating manual overhead through scripted workflows—from GAM bulk operations to Apps Script solutions replacing legacy VBA.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Apps Script</span>
+        <span class="skill-tag">GAM / GAMADV</span>
+        <span class="skill-tag">PowerShell</span>
+        <span class="skill-tag">Python</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M9 12l2 2 4-4"/>
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+      </svg>
+      <h3>Regulated Environments</h3>
+      <p>Security-aware delivery in compliance-sensitive contexts including DoD requirements and FedRAMP-scoped Google Workspace.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">FedRAMP</span>
+        <span class="skill-tag">DoD Compliance</span>
+        <span class="skill-tag">Security Posture</span>
+        <span class="skill-tag">MDM</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+      <h3>Stakeholder Enablement</h3>
+      <p>Translating complex technical solutions into clear proposals. Training, change management, and post-implementation success programs.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Discovery Sessions</span>
+        <span class="skill-tag">Training Design</span>
+        <span class="skill-tag">Change Mgmt</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <svg class="skill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="18" cy="18" r="3"/>
+        <circle cx="6" cy="6" r="3"/>
+        <path d="M6 21V9a9 9 0 0 0 9 9"/>
+      </svg>
+      <h3>Cloud Migration Strategy</h3>
+      <p>Leading GWS-to-GWS, M365-to-GWS, and GWS-to-M365 cutovers—milestone planning, risk management, validation and hypercare.</p>
+      <div class="skill-tags">
+        <span class="skill-tag">CloudM Migrate</span>
+        <span class="skill-tag">Data Migration</span>
+        <span class="skill-tag">Cutover Planning</span>
+        <span class="skill-tag">JIRA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELECTED WORK -->
+
+<section id="work" style="padding-top:0;">
+  <div class="section-label">Selected Work</div>
+  <h2>Projects that <span>shipped.</span></h2>
+  <div class="cases">
+
+```
+<div class="case-card reveal">
+  <div class="case-header">
+    <div>
+      <div class="case-company">Salesforce · FedRAMP Initiative</div>
+      <h3>FedRAMP-Scoped Google Workspace Governance</h3>
+    </div>
+    <span class="case-year">2023–2024</span>
+  </div>
+  <p>Embedded as Collaboration Systems Engineer to support Salesforce's DoD compliance posture within a FedRAMP-scoped GWS environment. Built automation pipelines using Advanced GAM and Apps Script, deployed code via Heroku PaaS, and maintained security-aware delivery across a complex regulated environment.</p>
+  <div class="case-outcomes">
+    <div class="outcome"><span class="outcome-val">DoD</span><span class="outcome-desc">Compliance Requirements Met</span></div>
+    <div class="outcome"><span class="outcome-val">FedRAMP</span><span class="outcome-desc">Environment Supported</span></div>
+    <div class="outcome"><span class="outcome-val">GAM + GAS</span><span class="outcome-desc">Automation Stack Built</span></div>
+  </div>
+</div>
+
+<div class="case-card reveal">
+  <div class="case-header">
+    <div>
+      <div class="case-company">Meta (Facebook)</div>
+      <h3>Enterprise GWS Platform Improvements</h3>
+    </div>
+    <span class="case-year">2022–2023</span>
+  </div>
+  <p>Provided technical leadership at Meta for Google Workspace platform transitions and optimization. Customized configurations to align with business requirements, built and delivered training programs for thousands of internal users, and drove adoption outcomes through stakeholder enablement and UAT support.</p>
+  <div class="case-outcomes">
+    <div class="outcome"><span class="outcome-val">~70k</span><span class="outcome-desc">Employee Org Supported</span></div>
+    <div class="outcome"><span class="outcome-val">100%</span><span class="outcome-desc">UAT Coverage</span></div>
+    <div class="outcome"><span class="outcome-val">SME</span><span class="outcome-desc">Technical Lead Role</span></div>
+  </div>
+</div>
+
+<div class="case-card reveal">
+  <div class="case-header">
+    <div>
+      <div class="case-company">66 Degrees</div>
+      <h3>Multi-Client Cloud Migration Program</h3>
+    </div>
+    <span class="case-year">2024</span>
+  </div>
+  <p>Led GWS-to-GWS and GWS-to-M365 migration projects as Deployment Lead. Owned full project lifecycle from stakeholder kick-off through post-cutover hypercare. Managed data migration for email, Drive, and SaaS workloads; maintained delivery visibility via JIRA with multi-domain Advanced GAM configurations.</p>
+  <div class="case-outcomes">
+    <div class="outcome"><span class="outcome-val">Multi-Domain</span><span class="outcome-desc">GAM Environments</span></div>
+    <div class="outcome"><span class="outcome-val">0</span><span class="outcome-desc">Missed Milestones</span></div>
+    <div class="outcome"><span class="outcome-val">GWS + M365</span><span class="outcome-desc">Both Platforms</span></div>
+  </div>
+</div>
+
+<div class="case-card reveal">
+  <div class="case-header">
+    <div>
+      <div class="case-company">Kincaid IT</div>
+      <h3>Automation-Driven Workspace Modernization</h3>
+    </div>
+    <span class="case-year">2020–2022</span>
+  </div>
+  <p>Led multiple Google Workspace deployments and migrations across a portfolio of clients, collectively supporting thousands of end users. Integrated third-party applications, automated administrative tasks and reporting, and built knowledge base documentation that scaled support capacity without proportional headcount growth.</p>
+  <div class="case-outcomes">
+    <div class="outcome"><span class="outcome-val">1000s</span><span class="outcome-desc">Users Migrated</span></div>
+    <div class="outcome"><span class="outcome-val">↓ Significantly</span><span class="outcome-desc">Manual Admin Overhead</span></div>
+    <div class="outcome"><span class="outcome-val">KB Docs</span><span class="outcome-desc">Self-Service Infrastructure</span></div>
+  </div>
+</div>
+
+<div class="case-card reveal">
+  <div class="case-header">
+    <div>
+      <div class="case-company">Karcher · Contract</div>
+      <h3>VBA-to-Apps Script Migration & M365 Phase-Out</h3>
+    </div>
+    <span class="case-year">2025</span>
+  </div>
+  <p>Developed Google Apps Script (JavaScript) solutions to replace legacy VBA automation as part of a broader Microsoft 365 to Google Workspace transition. Partnered with IT leadership on Office 365 phase-out, delivered end-user training curriculum, and provided post-migration support to ensure adoption success.</p>
+  <div class="case-outcomes">
+    <div class="outcome"><span class="outcome-val">100%</span><span class="outcome-desc">VBA Coverage Replaced</span></div>
+    <div class="outcome"><span class="outcome-val">M365 → GWS</span><span class="outcome-desc">Full Platform Migration</span></div>
+    <div class="outcome"><span class="outcome-val">Training</span><span class="outcome-desc">Curriculum Delivered</span></div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+
+<section id="experience">
+  <div class="section-label">Career History</div>
+  <h2>Where I've <span>worked.</span></h2>
+  <div class="timeline reveal">
+
+```
+<div class="timeline-item current">
+  <div class="tl-meta">
+    <span class="tl-company">Brio Technologies</span>
+    <span class="tl-period">Apr 2025 – Present</span>
+    <span class="tl-badge full">Full-Time</span>
+  </div>
+  <div class="tl-role">GWS Solutions Engineer</div>
+  <ul class="tl-bullets">
+    <li>Trusted technical advisor translating business requirements into secure, scalable GWS solutions</li>
+    <li>Run discovery sessions; design target architectures and implementation plans aligned to client objectives</li>
+    <li>Present proposals to technical and non-technical stakeholders; support sales cycles and deal closures</li>
+    <li>Recommend best practices to optimize Gmail, Drive, and collaboration workflows</li>
+  </ul>
+</div>
+
+<div class="timeline-item">
+  <div class="tl-meta">
+    <span class="tl-company">Karcher</span>
+    <span class="tl-period">Feb 2025 – Apr 2025</span>
+    <span class="tl-badge contract">Contract</span>
+  </div>
+  <div class="tl-role">Google Workspace Developer</div>
+  <ul class="tl-bullets">
+    <li>Developed Apps Script (JavaScript) solutions migrating legacy VBA automation</li>
+    <li>Provided post-migration support for M365-to-GWS transition</li>
+    <li>Created and delivered end-user training curriculum to improve adoption</li>
+  </ul>
+</div>
+
+<div class="timeline-item">
+  <div class="tl-meta">
+    <span class="tl-company">66 Degrees</span>
+    <span class="tl-period">Jun 2024 – Oct 2024</span>
+    <span class="tl-badge contract">Contract</span>
+  </div>
+  <div class="tl-role">Google Workspace Deployment Lead</div>
+  <ul class="tl-bullets">
+    <li>Led GWS-to-GWS and GWS-to-M365 migration projects end-to-end</li>
+    <li>Managed milestones, risks, and stakeholder expectations via JIRA</li>
+    <li>Configured multi-domain environments using Advanced GAM scripting</li>
+  </ul>
+</div>
+
+<div class="timeline-item">
+  <div class="tl-meta">
+    <span class="tl-company">Salesforce</span>
+    <span class="tl-period">Oct 2023 – Apr 2024</span>
+    <span class="tl-badge contract">Contract</span>
+  </div>
+  <div class="tl-role">Collaboration Systems Engineer</div>
+  <ul class="tl-bullets">
+    <li>Ensured compliance with DoD requirements; supported FedRAMP security efforts</li>
+    <li>Built automation using Advanced GAM, Google Apps Script, and Visual Studio tooling</li>
+    <li>Deployed and analyzed code via Heroku PaaS</li>
+  </ul>
+</div>
+
+<div class="timeline-item">
+  <div class="tl-meta">
+    <span class="tl-company">Pansophic Learning</span>
+    <span class="tl-period">Feb 2023 – Oct 2023</span>
+    <span class="tl-badge contract">Contract</span>
+  </div>
+  <div class="tl-role">Systems Engineer II · Google Workspace SME</div>
+  <ul class="tl-bullets">
+    <li>Provided strategic GWS consulting and change management guidance</li>
+    <li>Automated processes using PowerShell, Python, and JavaScript to reduce manual effort</li>
+    <li>Designed and implemented secure configurations improving governance workflows</li>
+  </ul>
+</div>
+
+<div class="timeline-item">
+  <div class="tl-meta">
+    <span class="tl-company">Meta (Facebook)</span>
+    <span class="tl-period">Jun 2022 – Feb 2023</span>
+    <span class="tl-badge contract">Contract</span>
+  </div>
+  <div class="tl-role">Senior Google Workspace Engineer · SME</div>
+  <ul class="tl-bullets">
+    <li>Technical leadership for GWS transitions and platform improvements at enterprise scale</li>
+    <li>Built and delivered training to improve adoption; supported stakeholder enablement</li>
+    <li>Customized configurations to align with business needs; performed UAT</li>
+  </ul>
+</div>
+
+<div class="timeline-item">
+  <div class="tl-meta">
+    <span class="tl-company">Kincaid IT</span>
+    <span class="tl-period">Nov 2020 – Jun 2022</span>
+    <span class="tl-badge full">Full-Time</span>
+  </div>
+  <div class="tl-role">Google Workspace Deployment Engineer</div>
+  <ul class="tl-bullets">
+    <li>Led multiple GWS deployments and migrations supporting thousands of users</li>
+    <li>Integrated third-party applications; automated admin tasks and reporting</li>
+    <li>Delivered technical training and created knowledge base documentation</li>
+  </ul>
+</div>
+
+<div class="timeline-item">
+  <div class="tl-meta">
+    <span class="tl-company">SADA</span>
+    <span class="tl-period">Oct 2018 – Aug 2020</span>
+    <span class="tl-badge full">Full-Time</span>
+  </div>
+  <div class="tl-role">Google Cloud Consultant II</div>
+  <ul class="tl-bullets">
+    <li>Troubleshot GWS issues; supported admin console operations</li>
+    <li>Automated recurring admin tasks using Advanced GAM and scripting tools</li>
+    <li>Assisted with MDM initiatives and security compliance efforts</li>
+  </ul>
+</div>
+
+<div class="timeline-item">
+  <div class="tl-meta">
+    <span class="tl-company">Finchloom</span>
+    <span class="tl-period">Apr 2017 – Jan 2018</span>
+    <span class="tl-badge full">Full-Time</span>
+  </div>
+  <div class="tl-role">Cloud Administrator · Microsoft 365</div>
+  <ul class="tl-bullets">
+    <li>Managed M365, Azure AD, Intune, and security compliance configurations</li>
+    <li>Configured SSO and MFA policies; led Office 365 and Azure migration efforts</li>
+  </ul>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- CERTS -->
+
+<section style="padding-top:0;">
+  <div class="section-label">Credentials</div>
+  <h2>Certifications &amp; <span>Education</span></h2>
+  <div class="certs-grid reveal">
+    <div class="cert-card">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/>
+        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+      </svg>
+      <div>
+        <div class="cert-name">Google Cloud Professional Administrator</div>
+        <div class="cert-issuer">Google</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/>
+        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+      </svg>
+      <div>
+        <div class="cert-name">CloudM Migrate Certified</div>
+        <div class="cert-issuer">CloudM</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <circle cx="12" cy="8" r="6"/>
+        <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+      </svg>
+      <div>
+        <div class="cert-name">GWS Education Deployment &amp; Services</div>
+        <div class="cert-issuer">Google</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <svg class="cert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+      </svg>
+      <div>
+        <div class="cert-name">Network &amp; Systems Administration, A.S.</div>
+        <div class="cert-issuer">ITT Tech, Oxnard CA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<div id="contact">
+  <div class="contact-inner">
+    <div class="contact-text">
+      <div class="section-label">Get In Touch</div>
+      <h2>Let's <span>connect.</span></h2>
+      <p>Based in San Diego. Open to full-time, contract, onsite, hybrid, or remote roles.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:stevenrmoynihan@gmail.com" class="btn btn-primary">Email Me</a>
+      <a href="https://www.linkedin.com/in/stevenmoynihan/" class="btn btn-ghost" target="_blank">LinkedIn</a>
+      <a href="assets/Steven_Moynihan_Resume_Modern_Dark_Tech.pdf" class="btn btn-ghost" target="_blank">Download Resume</a>
+    </div>
+  </div>
+</div>
+
+<footer style="max-width:1100px;margin:0 auto;">
+  <p>© 2025 Steven Moynihan · Governance-first systems delivery</p>
+  <p>San Diego, CA</p>
+</footer>
+
+<script>
+  // Intersection Observer for scroll reveals
+  const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.fade-up, .stagger').forEach(el => observer.observe(el));
-
-  // Hero animates immediately
-  document.querySelectorAll('.hero > *').forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(18px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    el.style.transitionDelay = `${i * 0.1}s`;
-    requestAnimationFrame(() => {
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    });
-  });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
 </script>
 
 </body>
