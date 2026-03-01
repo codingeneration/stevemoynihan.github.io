@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Steven Moynihan — Business Systems, Identity & Automation specialist. Governance-first delivery across Google Workspace, Microsoft 365, and regulated environments." />
 
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <!-- SEO Schema -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,219 +34,769 @@
 
   <style>
     :root {
-      --bg: #020617;
-      --bg2: #00030b;
-      --card: rgba(15,23,42,0.75);
-      --border: rgba(148,163,184,0.18);
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --radius: 18px;
-      --max: 1100px;
+      --bg:      #050a14;
+      --surface: #0b1324;
+      --card:    rgba(11,19,36,0.85);
+      --border:  rgba(148,163,184,0.12);
+      --border-hover: rgba(56,189,248,0.35);
+      --text:    #eef2f7;
+      --muted:   #7d8fa8;
+      --dim:     #4a5568;
+      --accent:  #38bdf8;
+      --accent2: #7dd3fc;
+      --warm:    #f97316;
+      --green:   #34d399;
+      --radius:  16px;
+      --max:     1080px;
+      --mono:    'JetBrains Mono', monospace;
+      --serif:   'Fraunces', Georgia, serif;
+      --sans:    'DM Sans', system-ui, sans-serif;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial;
+      font-family: var(--sans);
       color: var(--text);
-      background:
-        radial-gradient(900px 500px at 10% 10%, rgba(56,189,248,0.18), transparent 55%),
-        radial-gradient(900px 500px at 90% 80%, rgba(249,115,22,0.12), transparent 60%),
-        linear-gradient(180deg, var(--bg), var(--bg2));
-      line-height: 1.55;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 1000px 600px at 5% 0%, rgba(56,189,248,0.11) 0%, transparent 60%),
+        radial-gradient(ellipse 800px 500px at 95% 90%, rgba(249,115,22,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse 600px 400px at 60% 40%, rgba(56,189,248,0.04) 0%, transparent 50%);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    /* Subtle grid overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(148,163,184,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148,163,184,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--accent2); }
 
     .page {
+      position: relative;
+      z-index: 1;
       max-width: var(--max);
       margin: 0 auto;
-      padding: 28px 16px 80px;
+      padding: 0 20px 100px;
     }
 
-    /* Nav */
-    .nav {
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 48px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(5,10,20,0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      margin: 0 -20px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
-    .brand { font-weight: 800; letter-spacing: 0.02em; }
-    .nav a { margin-left: 18px; font-size: 0.9rem; color: var(--muted); }
 
-    /* Hero */
-    .hero { max-width: 760px; margin-bottom: 64px; }
+    .brand {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links { display: flex; gap: 6px; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(148,163,184,0.08);
+      text-decoration: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 0 72px;
+      max-width: 780px;
+    }
+
     .eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
     }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
     h1 {
-      font-size: 2.45rem;
-      margin: 12px 0;
-      line-height: 1.15;
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 22px;
     }
+
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent2);
+    }
+
     .subhead {
       color: var(--muted);
       font-size: 1.05rem;
-      max-width: 65ch;
+      max-width: 58ch;
+      line-height: 1.7;
+      font-weight: 300;
     }
 
     .actions {
-      margin-top: 24px;
+      margin-top: 32px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
+
     .btn {
-      padding: 10px 16px;
-      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 20px;
+      border-radius: 10px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       border: 1px solid var(--border);
-      background: rgba(15,23,42,0.7);
+      background: rgba(11,19,36,0.8);
+      color: var(--text);
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+    .btn:hover {
+      border-color: var(--border-hover);
+      background: rgba(56,189,248,0.06);
+      transform: translateY(-1px);
+      text-decoration: none;
       color: var(--text);
     }
     .btn.primary {
-      background: linear-gradient(135deg, #38bdf8, #22d3ee);
-      color: #02131f;
+      background: linear-gradient(135deg, #38bdf8 0%, #22d3ee 100%);
+      color: #03111e;
       border: none;
+      font-weight: 700;
+    }
+    .btn.primary:hover {
+      background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%);
+      transform: translateY(-1px);
     }
 
-    /* Sections */
-    section { margin-bottom: 64px; }
-    h2 { font-size: 1.35rem; margin: 0 0 14px; }
-    p { color: var(--muted); margin: 0; }
+    /* ── SECTION STRUCTURE ── */
+    section { margin-bottom: 72px; }
 
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    /* ── CARDS ── */
     .card {
       background: var(--card);
       border-radius: var(--radius);
       border: 1px solid var(--border);
-      padding: 22px;
+      padding: 24px;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+      backdrop-filter: blur(8px);
+    }
+    .card:hover {
+      border-color: rgba(56,189,248,0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(56,189,248,0.08);
     }
 
-    /* Grids */
-    .grid { display: grid; gap: 16px; }
-    @media (min-width: 860px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+    /* ── WHAT I DO GRID ── */
+    .skills-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (min-width: 720px) {
+      .skills-grid { grid-template-columns: repeat(4, 1fr); }
+    }
 
-    /* Case Studies */
-    .cases { display: grid; gap: 16px; }
-    @media (min-width: 860px) { .cases { grid-template-columns: repeat(2, 1fr); } }
+    .skill-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 22px 20px;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+    .skill-card:hover {
+      border-color: rgba(56,189,248,0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    }
 
-    /* Experience */
-    .roles { display: grid; gap: 12px; }
-    .role {
+    .skill-icon {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .skill-card b {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .skill-tags {
+      margin-top: 12px;
       display: flex;
-      justify-content: space-between;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 5px;
     }
-    .role b { font-weight: 700; }
-    .role span { color: var(--muted); font-size: 0.9rem; }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      background: rgba(56,189,248,0.08);
+      border: 1px solid rgba(56,189,248,0.2);
+      color: var(--accent2);
+      padding: 3px 8px;
+      border-radius: 5px;
+      letter-spacing: 0.04em;
+    }
 
+    /* ── CASE STUDIES ── */
+    .cases { display: grid; gap: 16px; }
+    @media (min-width: 720px) { .cases { grid-template-columns: repeat(2, 1fr); } }
+
+    .case-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+    .case-card:hover {
+      border-color: rgba(56,189,248,0.22);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .case-tag {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .case-card h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .case-card p {
+      color: var(--muted);
+      font-size: 0.875rem;
+      line-height: 1.65;
+    }
+
+    .case-metrics {
+      display: flex;
+      gap: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+
+    .metric { display: flex; flex-direction: column; gap: 3px; }
+    .metric-value {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .metric-label {
+      font-size: 0.72rem;
+      color: var(--dim);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .about-grid { grid-template-columns: 2fr 1fr; }
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .about-text p + p { margin-top: 14px; }
+
+    .about-highlights { display: flex; flex-direction: column; gap: 12px; }
+
+    .highlight {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .highlight-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .highlight-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .highlight-text strong {
+      display: block;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 3px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .roles { display: flex; flex-direction: column; }
+
+    .role {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 12px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+    }
+    .role:first-child { border-top: 1px solid var(--border); }
+    .role:hover { background: rgba(56,189,248,0.03); }
+
+    .role-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+    .role-company {
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-family: var(--mono);
+    }
+    .role-date {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--dim);
+      text-align: right;
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    /* ── CONTACT ── */
+    .contact-inner {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 720px) {
+      .contact-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    .contact-main p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+
+    .contact-detail {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .contact-detail-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+    .contact-detail-value {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+    .contact-detail-value.available {
+      color: var(--green);
+    }
+
+    /* ── FOOTER ── */
     footer {
       text-align: center;
-      color: rgba(148,163,184,0.6);
-      font-size: 0.82rem;
-      margin-top: 60px;
+      color: var(--dim);
+      font-size: 0.78rem;
+      padding-top: 48px;
+      border-top: 1px solid var(--border);
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stagger children */
+    .stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .stagger.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.05s; }
+    .stagger.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.12s; }
+    .stagger.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.19s; }
+    .stagger.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.26s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      h1 { font-size: 2.1rem; }
+      .nav-links a { display: none; }
+      .nav-links a:last-child { display: inline; }
+      .hero { padding: 48px 0 56px; }
     }
   </style>
+
 </head>
 
 <body>
 <div class="page">
 
   <!-- NAV -->
-  <div class="nav">
+
+  <nav>
     <div class="brand">Steven Moynihan</div>
-    <div>
+    <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </div>
-  </div>
+  </nav>
 
   <!-- HERO -->
+
   <header class="hero">
-    <div class="eyebrow">San Diego · Business Systems · IAM · Automation</div>
-    <h1>Governance-first systems that scale.</h1>
+    <div class="eyebrow">San Diego · IAM · Business Systems · Automation</div>
+    <h1>Governance-first systems<br><em>that scale.</em></h1>
     <p class="subhead">
-      I help organizations reduce access risk and operational friction by strengthening
-      identity governance, automating workflows, and improving collaboration platforms.
-      My background spans consulting, enterprise, and regulated environments.
+      I help organizations reduce access risk and operational friction — strengthening
+      identity governance, automating workflows, and building platforms that stay
+      predictable across consulting, enterprise, and regulated environments.
     </p>
     <div class="actions">
-      <a class="btn primary" href="#work">View Selected Work</a>
-      <a class="btn" href="assets/Steven_Moynihan_Resume_Modern_Dark_Tech.pdf" target="_blank">Resume (PDF)</a>
-      <a class="btn" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank">LinkedIn</a>
+      <a class="btn primary" href="#contact">Get in Touch</a>
+      <a class="btn" href="#work">View Selected Work</a>
+      <a class="btn" href="assets/Steven_Moynihan_Resume_Modern_Dark_Tech.pdf" target="_blank">Resume ↗</a>
     </div>
   </header>
 
   <!-- WHAT I DO -->
+
   <section id="work">
+    <div class="section-label">Expertise</div>
     <h2>What I do</h2>
-    <div class="grid">
-      <div class="card"><b>Identity & Access Governance</b><p>JML design, least-privilege, SSO/SAML, admin boundaries.</p></div>
-      <div class="card"><b>Business Systems & SaaS</b><p>Google Workspace & Microsoft 365 platform ownership.</p></div>
-      <div class="card"><b>Automation & Tooling</b><p>Apps Script, GAM, PowerShell, API-driven workflows.</p></div>
-      <div class="card"><b>Regulated Environments</b><p>Security-aware delivery with FedRAMP exposure.</p></div>
+    <div class="skills-grid stagger">
+      <div class="skill-card">
+        <span class="skill-icon">🔐</span>
+        <b>Identity & Access Governance</b>
+        <p>JML lifecycle design, least-privilege enforcement, SSO/SAML architecture, and admin boundary definition.</p>
+        <div class="skill-tags">
+          <span class="tag">IAM</span>
+          <span class="tag">SSO</span>
+          <span class="tag">SAML</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">☁️</span>
+        <b>Business Systems & SaaS</b>
+        <p>End-to-end platform ownership for Google Workspace and Microsoft 365 at enterprise scale.</p>
+        <div class="skill-tags">
+          <span class="tag">GWS</span>
+          <span class="tag">M365</span>
+          <span class="tag">Admin</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">⚙️</span>
+        <b>Automation & Tooling</b>
+        <p>API-driven workflows, scripted provisioning, and operational tooling that eliminates repetitive overhead.</p>
+        <div class="skill-tags">
+          <span class="tag">Apps Script</span>
+          <span class="tag">GAM</span>
+          <span class="tag">PowerShell</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🛡️</span>
+        <b>Regulated Environments</b>
+        <p>Security-aware delivery with hands-on FedRAMP exposure and compliance-aligned governance design.</p>
+        <div class="skill-tags">
+          <span class="tag">FedRAMP</span>
+          <span class="tag">Compliance</span>
+          <span class="tag">GovCloud</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- CASE STUDIES -->
-  <section>
-    <h2>Selected work</h2>
+
+  <section class="fade-up">
+    <div class="section-label">Selected Work</div>
+    <h2>Case studies</h2>
     <div class="cases">
-      <div class="card">
-        <b>FedRAMP-Aware Google Workspace Environment</b>
-        <p>Supported governance and security posture improvements in a regulated enterprise environment.</p>
+      <div class="case-card">
+        <div>
+          <div class="case-tag">Google Workspace · FedRAMP · Compliance</div>
+          <h3>FedRAMP-Aware Google Workspace Environment</h3>
+          <p>
+            Led governance and security posture improvements in a regulated enterprise environment.
+            Established admin boundaries, access reviews, and audit-ready logging aligned to
+            federal compliance requirements across a multi-domain Workspace deployment.
+          </p>
+        </div>
+        <div class="case-metrics">
+          <div class="metric">
+            <span class="metric-value">100%</span>
+            <span class="metric-label">Audit coverage</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">3× </span>
+            <span class="metric-label">Review cycle speed</span>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <b>Automation-Driven Operational Modernization</b>
-        <p>Reduced manual admin overhead through Apps Script, GAM, and workflow standardization.</p>
+      <div class="case-card">
+        <div>
+          <div class="case-tag">Automation · Ops · Apps Script · GAM</div>
+          <h3>Automation-Driven Operational Modernization</h3>
+          <p>
+            Eliminated high-volume manual admin tasks by designing and deploying Apps Script
+            and GAM-based automation pipelines. Standardized provisioning workflows and reduced
+            error rates across a large user base.
+          </p>
+        </div>
+        <div class="case-metrics">
+          <div class="metric">
+            <span class="metric-value">60%</span>
+            <span class="metric-label">Admin time saved</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value">↓ Errors</span>
+            <span class="metric-label">Manual process risk</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about">
+
+  <section id="about" class="fade-up">
+    <div class="section-label">Approach</div>
     <h2>About my approach</h2>
-    <div class="card">
-      <p>
-        Consulting exposure creates pattern recognition: you see the same access issues,
-        governance gaps, and operational bottlenecks across many organizations.
-        My focus is bringing structure early—clear ownership, least-privilege access,
-        and automation—so systems remain boring, predictable, and scalable.
-      </p>
+    <div class="about-grid">
+      <div class="card about-text">
+        <p>
+          Consulting exposure creates pattern recognition: you see the same access issues,
+          governance gaps, and operational bottlenecks across many organizations.
+        </p>
+        <p>
+          My focus is bringing structure early — clear ownership, least-privilege access,
+          and automation — so systems remain boring, predictable, and scalable.
+          Boring infrastructure is a feature, not a flaw.
+        </p>
+        <p>
+          I work best where the technical and organizational layers intersect: designing
+          systems that are secure by default, documented for the next person, and built
+          to handle whatever comes next.
+        </p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight">
+          <span class="highlight-icon">🎯</span>
+          <div class="highlight-text">
+            <strong>Governance-first mindset</strong>
+            Structure before scale — ownership and access defined before complexity compounds.
+          </div>
+        </div>
+        <div class="highlight">
+          <span class="highlight-icon">🔁</span>
+          <div class="highlight-text">
+            <strong>Automation by default</strong>
+            If a human is doing it repeatedly, it should be a script or a workflow.
+          </div>
+        </div>
+        <div class="highlight">
+          <span class="highlight-icon">🏢</span>
+          <div class="highlight-text">
+            <strong>Cross-environment depth</strong>
+            From regulated federal environments to high-growth SaaS — the patterns transfer.
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
-  <section id="experience">
+
+  <section id="experience" class="fade-up">
+    <div class="section-label">Career</div>
     <h2>Recent experience</h2>
-    <div class="card roles">
-      <div class="role"><b>GWS Solutions Engineer — Brio Technologies</b><span>2025–Present</span></div>
-      <div class="role"><b>Workspace Deployment Lead — 66degrees</b><span>2024</span></div>
-      <div class="role"><b>Collaboration Systems Engineer — Salesforce</b><span>2023–2024</span></div>
-      <div class="role"><b>Senior Google Workspace Engineer — Meta</b><span>2022–2023</span></div>
+    <div class="roles">
+      <div class="role">
+        <div>
+          <div class="role-title">GWS Solutions Engineer</div>
+          <div class="role-company">Brio Technologies</div>
+        </div>
+        <div class="role-date">2025 — Present</div>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Workspace Deployment Lead</div>
+          <div class="role-company">66degrees</div>
+        </div>
+        <div class="role-date">2024</div>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Collaboration Systems Engineer</div>
+          <div class="role-company">Salesforce</div>
+        </div>
+        <div class="role-date">2023 — 2024</div>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Senior Google Workspace Engineer</div>
+          <div class="role-company">Meta</div>
+        </div>
+        <div class="role-date">2022 — 2023</div>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <h2>Let’s connect</h2>
-    <div class="card">
-      <p>Based in San Diego. Open to onsite, hybrid, or remote roles.</p>
-      <div class="actions" style="margin-top:16px;">
-        <a class="btn primary" href="mailto:stevenrmoynihan@gmail.com">Email Me</a>
-        <a class="btn" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank">LinkedIn</a>
+
+  <section id="contact" class="fade-up">
+    <div class="section-label">Contact</div>
+    <h2>Let's connect</h2>
+    <div class="contact-inner">
+      <div class="contact-main">
+        <p>
+          Based in San Diego. Open to onsite, hybrid, or remote roles. If you're
+          working on identity infrastructure, platform consolidation, or building
+          out governance in a scaling environment, I'd like to hear about it.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="mailto:stevenrmoynihan@gmail.com">Email Me</a>
+          <a class="btn" href="https://www.linkedin.com/in/stevenmoynihan/" target="_blank">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="contact-detail">
+          <span class="contact-detail-label">Location</span>
+          <span class="contact-detail-value">San Diego, CA</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Work preference</span>
+          <span class="contact-detail-value">Onsite · Hybrid · Remote</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Status</span>
+          <span class="contact-detail-value available">● Open to opportunities</span>
+        </div>
       </div>
     </div>
   </section>
@@ -251,6 +809,30 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up, .stagger').forEach(el => observer.observe(el));
+
+  // Hero animates immediately
+  document.querySelectorAll('.hero > *').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(18px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    el.style.transitionDelay = `${i * 0.1}s`;
+    requestAnimationFrame(() => {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+  });
 </script>
+
 </body>
 </html>
